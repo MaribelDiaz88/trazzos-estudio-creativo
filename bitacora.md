@@ -1,15 +1,19 @@
 # Bitácora SCRUM — Semana 1
 
-## Día 1 — 10/09/2026
 **Proyecto:** TRAZZOS — Estudio Creativo Digital
-**Responsable:** Mary Díaz
+**Responsable:** Maribel Díaz Carmona
+**Curso:** CSTI12008 — Desarrollo de Página Web
+
+---
+
+## Día 1 — 10/09/2026
 
 ### ¿Qué hice hoy?
 - Configuré VS Code + Live Server.
 - Definí la actividad económica: Estudio Creativo Digital.
 - Definí el nombre de la página: TRAZZOS.
 - Construí el `index.html` con HTML5 semántico (sin `<div>`).
-- Integré identidad real: nombre, Mary Díaz, frase, servicios y paquetes.
+- Integré identidad real: nombre, Maribel Díaz, frase, servicios y paquetes.
 - Verifiqué navegación por anclas.
 
 ### ¿Qué aprendí?
@@ -18,14 +22,17 @@
 - Jerarquía correcta de títulos (h1 → h2 → h3).
 
 ### ¿Qué me costó?
-- Recoradr conseptos al inicio
+- Recordar conceptos al inicio.
 
 ### ¿Qué necesito repasar?
-- Mas práctica
+- Más práctica.
+
 ### Estado
-Día 1 completado
+✅ Día 1 completado
+
+---
+
 ## Día 2 — 11/09/2026
-**Proyecto:** TRAZZOS — Estudio Creativo Digital
 
 ### ¿Qué hice hoy?
 - Reforcé el esqueleto semántico de las 4 secciones ancladas.
@@ -35,10 +42,10 @@ Día 1 completado
 - Actualicé datos de contacto reales:
   - Correo: trazzoscr02@gmail.com
   - Celular: 6270-2678
-- Agregué foto personal de Mary Díaz en sección Nosotros.
+- Agregué foto personal de Maribel Díaz Carmona en la sección Nosotros.
 - Organicé estructura: `index.html` en minúscula, logo y foto en `img/`.
 - Corregí errores detectados por W3C (etiquetas `</address>` huérfanas).
-- ✅ Validación W3C final: 0 errores.
+- Validación W3C final: 0 errores.
 
 ### ¿Qué aprendí?
 - Funcionamiento de anclas con `id` + `href`.
@@ -57,4 +64,44 @@ Día 1 completado
 - Box model (para el Día 3).
 
 ### Estado
- Día 2 completado — 0 errores W3C
+✅ Día 2 completado — 0 errores W3C
+
+### Evidencias
+- `img/Evidencia_pag_live_service.png` — Sitio funcionando en Live Server
+- `img/Evidencia_Valitor.png` — Validación W3C sin errores
+- `img/Evidencia_VSC.png` — Código en VS Code
+
+---
+
+## Día 3 — 17/09/2026
+
+### ¿Qué hice hoy?
+- Creé el archivo `styles.css` completo.
+- Definí variables CSS en `:root`:
+  - `--color-fondo`, `--color-texto`, `--color-acento`
+  - `--fuente-titulo`, `--fuente-texto`
+- Apliqué `box-sizing: border-box` universal.
+- Moví `scroll-behavior: smooth` al CSS externo.
+- Implementé enfoque mobile-first con punto de quiebre en `720px`.
+- Añadí `clamp()` para tipografía responsive.
+- Aseguré `44x44px` de área táctil en botones y nav.
+- Apliqué identidad visual TRAZZOS (azul rey + dorado).
+- Corregí el `index.html`: tilde de "quien" y diferenciación de celulares.
+
+### ¿Qué aprendí?
+- Variables CSS en `:root` y su reutilización con `var()`.
+- Box model moderno con `box-sizing: border-box`.
+- Enfoque mobile-first (base = móvil, `@media` agrega).
+- `clamp()` para evitar múltiples media queries.
+- Área táctil mínima (44x44px) para accesibilidad móvil.
+
+### ¿Qué me costó?
+- Comprender la diferencia entre mobile-first y desktop-first.
+- Recordar que los `@media` con `min-width` agregan, no arreglan.
+
+### ¿Qué necesito repasar?
+- Uso de `clamp()` en más elementos.
+- Pruebas de accesibilidad con teclado (Tab).
+
+### Estado
+✅ Día 3 completado
