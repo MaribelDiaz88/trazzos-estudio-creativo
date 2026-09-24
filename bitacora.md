@@ -105,3 +105,36 @@
 
 ### Estado
 ✅ Día 3 completado
+
+
+---
+
+## Día 4 — 18/09/2026
+
+### ¿Qué hice hoy?
+- Validé el `index.html` con W3C Markup Validation Service.
+- Validé el `styles.css` con W3C CSS Validator.
+- Ambas validaciones sin errores.
+- Establecí el hábito semanal de validación.
+
+### Resultado:
+- HTML5: 0 errors, 0 warnings ✅
+- CSS3: 0 errors, 15 warnings informativos ✅
+
+### Estado
+✅ Día 4 completado
+
+---
+
+## Día 5 — 23/09/2026
+
+### ¿Qué hice hoy?
+- Creé el Hero principal con imagen de fondo responsiva.
+- Usé `<picture>` con 3 versiones (PC, Tablet, Móvil).
+- Separé el título del texto descriptivo.
+- Agregué un `<h2>` a `#intro` para accesibilidad.
+- Apliqué anidamiento CSS nativo.
+- Validación W3C final: 0 errors, 0 warnings.
+
+### Estado
+✅ Día 5 completado — Semana 1 terminada
