@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="TRAZZOS — Estudio Creativo Digital. Diseño web, contenido, branding y marketing para emprendimientos, negocios y marcas.">
     <title>TRAZZOS — Estudio Creativo Digital</title>
+    <link rel="icon" type="image/avif" href="img/favicon_T.avif">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- ============================================
-         ENCABEZADO GLOBAL
+         ENCABEZADO GLOBAL (logo en esquina + nav)
          ============================================ -->
     <header>
         <figure>
-            <img src="img/img_LOGO_Trazzoscr02.avif"
+            <img src="img/img_logo_trazzoscr02.avif"
                  alt="Logotipo oficial de TRAZZOS — T dorada sobre fondo azul rey">
         </figure>
 
         <h1>TRAZZOS</h1>
-        <p>Estudio Creativo Digital</p>
 
         <nav aria-label="Navegación principal">
             <ul>
@@ -37,11 +37,26 @@
     <main>
 
         <!-- ==========================================
-             SECCIÓN 1: INICIO (Hero)
+             SECCIÓN 1: HERO (solo imagen + título)
              ========================================== -->
         <section id="inicio">
-            <h2>Inicio</h2>
-            <p>Creamos contenido que posiciona, vende y construye identidad.</p>
+            <picture>
+                <source media="(min-width: 1024px)" srcset="img/hero_pc.avif">
+                <source media="(min-width: 720px)" srcset="img/hero_tablet.avif">
+                <img src="img/hero_cell_phone.avif"
+                     alt="Estudio creativo digital TRAZZOS — Soluciones digitales que posicionan y construyen identidad"
+                     width="800"
+                     height="1200">
+            </picture>
+
+            <h2>Creamos contenido que posiciona, vende y construye identidad</h2>
+        </section>
+
+        <!-- ==========================================
+             SECCIÓN 2: INTRO (descripción + CTA)
+             ========================================== -->
+        <section id="intro">
+            <h2>Bienvenido a TRAZZOS</h2>
             <p>
                 TRAZZOS es un estudio creativo digital que ayuda a emprendimientos,
                 negocios, profesionales y marcas a fortalecer su presencia digital
@@ -53,7 +68,7 @@
         </section>
 
         <!-- ==========================================
-             SECCIÓN 2: NOSOTROS
+             SECCIÓN 3: NOSOTROS
              ========================================== -->
         <section id="nosotros">
             <h2>Nosotros</h2>
@@ -79,7 +94,7 @@
         </section>
 
         <!-- ==========================================
-             SECCIÓN 3: SERVICIOS
+             SECCIÓN 4: SERVICIOS
              ========================================== -->
         <section id="servicios">
             <h2>Servicios</h2>
@@ -116,7 +131,7 @@
         </section>
 
         <!-- ==========================================
-             SECCIÓN 4: CONTACTO
+             SECCIÓN 5: CONTACTO
              ========================================== -->
         <section id="contacto">
             <h2>Contacto</h2>
