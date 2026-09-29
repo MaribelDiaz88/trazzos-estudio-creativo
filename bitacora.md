@@ -105,8 +105,6 @@
 
 ### Estado
 ✅ Día 3 completado
-
-
 ---
 
 ## Día 4 — 18/09/2026
@@ -117,9 +115,15 @@
 - Ambas validaciones sin errores.
 - Establecí el hábito semanal de validación.
 
-### Resultado:
+### Resultado de validaciones:
 - HTML5: 0 errors, 0 warnings ✅
-- CSS3: 0 errors, 15 warnings informativos ✅
+- CSS3: 0 errors, 15 warnings informativos (variables CSS dinámicas + vendor extension) ✅
+
+### ¿Qué aprendí?
+- Cómo usar los validadores oficiales de W3C.
+- La diferencia entre errores y warnings.
+- Que los warnings de variables CSS son normales.
+- La importancia de validar antes de subir.
 
 ### Estado
 ✅ Día 4 completado
@@ -130,11 +134,49 @@
 
 ### ¿Qué hice hoy?
 - Creé el Hero principal con imagen de fondo responsiva.
-- Usé `<picture>` con 3 versiones (PC, Tablet, Móvil).
-- Separé el título del texto descriptivo.
-- Agregué un `<h2>` a `#intro` para accesibilidad.
-- Apliqué anidamiento CSS nativo.
+- Usé la etiqueta `<picture>` con 3 versiones optimizadas:
+  - PC: 1920 × 1080
+  - Tablet: 1024 × 768
+  - Móvil: 800 × 1200
+- Separé el título (dentro del hero) del texto descriptivo (fuera).
+- Agregué un `<h2>` a la sección `#intro` para accesibilidad W3C.
+- Apliqué anidamiento CSS nativo en todos los bloques.
+- Estilicé el header con logo en esquina + nav horizontal.
+- Implementé favicon con la "T" dorada.
 - Validación W3C final: 0 errors, 0 warnings.
+
+### ¿Qué aprendí?
+- Uso de `<picture>` para imágenes responsivas.
+- Anidamiento CSS nativo (sintaxis moderna con `&`).
+- Composición de un hero profesional.
+- Importancia de las dimensiones exactas de las imágenes.
+- Optimización de peso con squoosh.app.
 
 ### Estado
 ✅ Día 5 completado — Semana 1 terminada
+
+### Evidencias
+- Hero en PC
+- Hero en móvil
+- Validación W3C (HTML + CSS)
+
+
+---
+
+## Día 6 — 29/09/2026
+
+### ¿Qué hice hoy?
+- Revisé que la navegación esté dentro de `<nav>` con `aria-label`.
+- Verifiqué que los 4 enlaces apunten a ids existentes.
+- Confirmé el contenedor flexible con Flexbox y `gap`.
+- Agregué `:focus-visible` para mejorar la accesibilidad del foco.
+- Probé la navegación con teclado (Tab): el foco es visible.
+- Probé el nav en móvil (400px): no se desborda, se reorganiza en 2 líneas.
+
+### ¿Qué aprendí?
+- Cómo funciona `:focus-visible` y su importancia para WCAG 2.2.
+- Cómo `flex-wrap: wrap` evita desbordes en pantallas estrechas.
+- La diferencia entre `:focus` y `:focus-visible`.
+
+### Estado
+✅ Día 6 completado — Navegación funcional, accesible y responsive
