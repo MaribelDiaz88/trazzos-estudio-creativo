@@ -3,6 +3,7 @@
    Hoja de estilos principal
    Día 3: Variables CSS + Box Model + Mobile-First
    Día 5: Hero con imagen + Anidamiento CSS nativo
+   Día 6: Hero a pantalla completa + Navegación con Flexbox
    ============================================ */
 
 
@@ -67,6 +68,7 @@ body {
     color: var(--color-texto);
     background-color: var(--color-fondo);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 
@@ -147,6 +149,8 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: var(--espacio-sm);
+    position: relative;
+    z-index: 10;
 
     figure {
         margin: 0;
@@ -233,15 +237,19 @@ section {
 
 
 /* ============================================
-   7. SECCIÓN INICIO — HERO (imagen + título)
+   7. SECCIÓN INICIO — HERO pantalla completa
    ============================================ */
 #inicio {
     position: relative;
     overflow: hidden;
     padding: 0;
-    margin-bottom: var(--espacio-md);
-    border-radius: var(--radio);
-    min-height: 400px;
+    margin-bottom: 0;
+    min-height: 100vh;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    border-radius: 0;
+    border-bottom: none;
 
     picture {
         display: block;
@@ -263,7 +271,7 @@ section {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            min-height: 400px;
+            min-height: 100vh;
         }
     }
 
@@ -274,7 +282,7 @@ section {
         transform: translate(-50%, -50%);
         z-index: 2;
         color: var(--color-acento);
-        font-size: clamp(1.5rem, 4vw, 2.8rem);
+        font-size: clamp(1.8rem, 5vw, 3.5rem);
         text-align: center;
         margin: 0;
         padding: 0 var(--espacio-md);
@@ -300,6 +308,7 @@ section {
     border-radius: var(--radio);
     box-shadow: var(--sombra-suave);
     margin-bottom: var(--espacio-lg);
+    margin-top: var(--espacio-lg);
 
     h2 {
         color: var(--color-azul);
@@ -524,14 +533,6 @@ footer {
         padding: var(--espacio-xl) 0;
     }
 
-    #inicio {
-        min-height: 500px;
-
-        picture img {
-            min-height: 500px;
-        }
-    }
-
     #servicios section ul {
         flex-direction: row;
         justify-content: center;
@@ -555,30 +556,16 @@ footer {
     main {
         padding: var(--espacio-xl) var(--espacio-lg);
     }
-
-    #inicio {
-        min-height: 550px;
-
-        picture img {
-            min-height: 550px;
-        }
-    }
 }
 
 
 /* ============================================
-   15. MEDIA QUERY: móvil — ajustes hero e intro
+   15. MEDIA QUERY: móvil — ajustes hero
    ============================================ */
 @media (max-width: 719px) {
     #inicio {
-        min-height: 350px;
-
-        picture img {
-            min-height: 350px;
-        }
-
         h2 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
     }
 
@@ -589,4 +576,15 @@ footer {
             font-size: 0.95rem;
         }
     }
+}
+
+
+/* ============================================
+   16. FOCO VISIBLE (Accesibilidad WCAG 2.2)
+   ============================================ */
+header nav a:focus-visible {
+    outline: 3px solid var(--color-acento);
+    outline-offset: 3px;
+    background-color: var(--color-acento);
+    color: var(--color-azul);
 }
