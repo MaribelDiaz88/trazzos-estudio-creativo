@@ -1,0 +1,590 @@
+/* ============================================
+   TRAZZOS — Estudio Creativo Digital
+   Hoja de estilos principal
+   Día 3: Variables CSS + Box Model + Mobile-First
+   Día 5: Hero con imagen + Anidamiento CSS nativo
+   Día 6: Hero a pantalla completa + Navegación con Flexbox
+   ============================================ */
+
+
+/* ============================================
+   1. VARIABLES CSS (:root)
+   ============================================ */
+:root {
+    --color-fondo: #F8F9FB;
+    --color-texto: #1A1A1A;
+    --color-acento: #D4AF37;
+    --fuente-titulo: Georgia, "Times New Roman", serif;
+    --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+    --color-azul: #0A1F44;
+    --color-azul-claro: #142B5A;
+    --color-acento-claro: #E8C766;
+    --color-blanco: #FFFFFF;
+    --color-texto-claro: #4A4A4A;
+
+    --tamano-base: 1rem;
+    --tamano-h1: clamp(2rem, 5vw + 1rem, 3rem);
+    --tamano-h2: clamp(1.5rem, 3vw + 1rem, 2rem);
+    --tamano-h3: clamp(1.1rem, 1.5vw + 0.8rem, 1.25rem);
+    --linea-altura: 1.6;
+
+    --espacio-xs: 0.5rem;
+    --espacio-sm: 1rem;
+    --espacio-md: 1.5rem;
+    --espacio-lg: 2rem;
+    --espacio-xl: clamp(2rem, 5vw, 4rem);
+
+    --radio: 8px;
+    --sombra-suave: 0 2px 8px rgba(10, 31, 68, 0.08);
+    --sombra-media: 0 4px 16px rgba(10, 31, 68, 0.12);
+
+    --transicion: 0.3s ease;
+    --area-tactil: 44px;
+    --ancho-max: min(90%, 70rem);
+}
+
+
+/* ============================================
+   2. RESET Y BOX MODEL MODERNO
+   ============================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    font-size: var(--tamano-base);
+    line-height: var(--linea-altura);
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+
+/* ============================================
+   3. TIPOGRAFÍA
+   ============================================ */
+h1, h2, h3 {
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-azul);
+}
+
+h1 {
+    font-size: var(--tamano-h1);
+    letter-spacing: 2px;
+    color: var(--color-acento);
+}
+
+h2 {
+    font-size: var(--tamano-h2);
+    margin-bottom: var(--espacio-md);
+    position: relative;
+    padding-bottom: var(--espacio-sm);
+    color: var(--color-azul);
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-acento);
+    margin-top: var(--espacio-xs);
+}
+
+h3 {
+    font-size: var(--tamano-h3);
+    margin-bottom: var(--espacio-xs);
+}
+
+p {
+    margin-bottom: var(--espacio-sm);
+    color: var(--color-texto-claro);
+}
+
+a {
+    color: var(--color-azul);
+    text-decoration: none;
+    transition: color var(--transicion);
+}
+
+a:hover {
+    color: var(--color-acento);
+}
+
+strong {
+    color: var(--color-azul);
+    font-weight: 700;
+}
+
+em {
+    color: var(--color-acento);
+    font-style: italic;
+}
+
+
+/* ============================================
+   4. ENCABEZADO (header) — logo esquina + nav
+   ============================================ */
+header {
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-bottom: 4px solid var(--color-acento);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacio-sm);
+    position: relative;
+    z-index: 10;
+
+    figure {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: var(--espacio-sm);
+
+        img {
+            max-width: 50px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    h1 {
+        color: var(--color-acento);
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        margin: 0;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--espacio-xs);
+            padding: 0;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: var(--area-tactil);
+            padding: var(--espacio-xs) var(--espacio-sm);
+            color: var(--color-blanco);
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: var(--radio);
+            transition: all var(--transicion);
+
+            &:hover,
+            &:focus {
+                background-color: var(--color-acento);
+                color: var(--color-azul);
+            }
+        }
+    }
+}
+
+
+/* ============================================
+   5. CONTENIDO PRINCIPAL (main)
+   ============================================ */
+main {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: var(--espacio-lg) var(--espacio-sm);
+}
+
+
+/* ============================================
+   6. SECCIONES
+   ============================================ */
+section {
+    padding: var(--espacio-lg) 0;
+    border-bottom: 1px solid rgba(10, 31, 68, 0.08);
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    > h2 {
+        text-align: center;
+
+        &::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+
+/* ============================================
+   7. SECCIÓN INICIO — HERO pantalla completa
+   ============================================ */
+#inicio {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 0;
+    min-height: 100vh;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    border-radius: 0;
+    border-bottom: none;
+
+    picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 31, 68, 0.55);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 100vh;
+        }
+    }
+
+    h2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: var(--color-acento);
+        font-size: clamp(1.8rem, 5vw, 3.5rem);
+        text-align: center;
+        margin: 0;
+        padding: 0 var(--espacio-md);
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+        max-width: 90%;
+        line-height: 1.2;
+        font-weight: 700;
+
+        &::after {
+            display: none;
+        }
+    }
+}
+
+
+/* ============================================
+   8. SECCIÓN INTRO (texto + botón debajo del hero)
+   ============================================ */
+#intro {
+    text-align: center;
+    padding: var(--espacio-lg) var(--espacio-md);
+    background-color: var(--color-blanco);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-suave);
+    margin-bottom: var(--espacio-lg);
+    margin-top: var(--espacio-lg);
+
+    h2 {
+        color: var(--color-azul);
+        font-size: var(--tamano-h2);
+        margin-bottom: var(--espacio-md);
+
+        &::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    p {
+        max-width: 700px;
+        margin: 0 auto var(--espacio-md);
+        font-size: 1.05rem;
+        color: var(--color-texto-claro);
+        line-height: 1.7;
+    }
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--area-tactil);
+        padding: var(--espacio-sm) var(--espacio-lg);
+        background-color: var(--color-acento);
+        color: var(--color-azul);
+        font-weight: 700;
+        border-radius: var(--radio);
+        transition: all var(--transicion);
+
+        &:hover,
+        &:focus {
+            background-color: var(--color-azul);
+            color: var(--color-acento);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-media);
+        }
+    }
+}
+
+
+/* ============================================
+   9. SECCIÓN NOSOTROS
+   ============================================ */
+#nosotros {
+    figure {
+        text-align: center;
+        margin: var(--espacio-lg) 0;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radio);
+            box-shadow: var(--sombra-media);
+            border: 3px solid var(--color-acento);
+        }
+
+        figcaption {
+            margin-top: var(--espacio-xs);
+            font-size: 0.9rem;
+            color: var(--color-texto-claro);
+            font-style: italic;
+        }
+    }
+
+    article {
+        background-color: var(--color-blanco);
+        padding: var(--espacio-lg);
+        border-radius: var(--radio);
+        border-left: 4px solid var(--color-acento);
+        box-shadow: var(--sombra-suave);
+        margin: var(--espacio-md) 0;
+    }
+}
+
+
+/* ============================================
+   10. SECCIÓN SERVICIOS
+   ============================================ */
+#servicios {
+    article {
+        background-color: var(--color-blanco);
+        padding: var(--espacio-md);
+        border-radius: var(--radio);
+        box-shadow: var(--sombra-suave);
+        margin-bottom: var(--espacio-md);
+        border-top: 3px solid var(--color-acento);
+        transition: transform var(--transicion), box-shadow var(--transicion);
+
+        &:hover,
+        &:focus-within {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-media);
+        }
+
+        h3 {
+            color: var(--color-azul);
+            margin-bottom: var(--espacio-xs);
+        }
+    }
+
+    section {
+        padding: var(--espacio-md);
+        background-color: var(--color-azul);
+        border-radius: var(--radio);
+        margin-top: var(--espacio-lg);
+        border-bottom: none;
+
+        h3 {
+            color: var(--color-acento);
+            text-align: center;
+            margin-bottom: var(--espacio-md);
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--espacio-sm);
+        }
+
+        li {
+            background-color: var(--color-blanco);
+            padding: var(--espacio-sm) var(--espacio-md);
+            border-radius: var(--radio);
+            border: 2px solid var(--color-acento);
+            color: var(--color-azul);
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+}
+
+
+/* ============================================
+   11. SECCIÓN CONTACTO
+   ============================================ */
+#contacto {
+    address {
+        font-style: normal;
+        background-color: var(--color-blanco);
+        padding: var(--espacio-lg);
+        border-radius: var(--radio);
+        border-left: 4px solid var(--color-acento);
+        box-shadow: var(--sombra-suave);
+        margin-bottom: var(--espacio-md);
+
+        strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: var(--espacio-xs);
+        }
+
+        a {
+            font-weight: 600;
+        }
+    }
+
+    section {
+        background-color: var(--color-blanco);
+        padding: var(--espacio-md);
+        border-radius: var(--radio);
+        box-shadow: var(--sombra-suave);
+        border-bottom: none;
+
+        h3 {
+            color: var(--color-azul);
+            margin-bottom: var(--espacio-sm);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            padding: var(--espacio-xs) 0;
+            border-bottom: 1px dashed rgba(10, 31, 68, 0.1);
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+
+/* ============================================
+   12. PIE DE PÁGINA (footer)
+   ============================================ */
+footer {
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: var(--espacio-lg) var(--espacio-sm);
+    border-top: 4px solid var(--color-acento);
+
+    p {
+        color: var(--color-blanco);
+        margin: 0;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ============================================
+   13. MEDIA QUERY: min-width 720px
+   ============================================ */
+@media (min-width: 720px) {
+    header {
+        figure img {
+            max-width: 60px;
+        }
+    }
+
+    main {
+        padding: var(--espacio-xl) var(--espacio-md);
+    }
+
+    section {
+        padding: var(--espacio-xl) 0;
+    }
+
+    #servicios section ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #servicios section li {
+        text-align: left;
+    }
+}
+
+
+/* ============================================
+   14. MEDIA QUERY: min-width 1024px
+   ============================================ */
+@media (min-width: 1024px) {
+    :root {
+        --espacio-xl: 5rem;
+    }
+
+    main {
+        padding: var(--espacio-xl) var(--espacio-lg);
+    }
+}
+
+
+/* ============================================
+   15. MEDIA QUERY: móvil — ajustes hero
+   ============================================ */
+@media (max-width: 719px) {
+    #inicio {
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    #intro {
+        padding: var(--espacio-md) var(--espacio-sm);
+
+        p {
+            font-size: 0.95rem;
+        }
+    }
+}
+
+
+/* ============================================
+   16. FOCO VISIBLE (Accesibilidad WCAG 2.2)
+   ============================================ */
+header nav a:focus-visible {
+    outline: 3px solid var(--color-acento);
+    outline-offset: 3px;
+    background-color: var(--color-acento);
+    color: var(--color-azul);
+}
