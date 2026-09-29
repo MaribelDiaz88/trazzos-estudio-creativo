@@ -180,3 +180,26 @@
 
 ### Estado
 ✅ Día 6 completado — Navegación funcional, accesible y responsive
+
+
+---
+
+## Día 7 — 29/09/2026
+
+### ¿Qué hice hoy?
+- Reorganicé la sección Servicios con CSS Grid.
+- Usé `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`.
+- El título `<h2>` ocupa toda la fila con `grid-column: 1 / -1`.
+- La subsección Paquetes también usa Grid: `repeat(auto-fit, minmax(200px, 1fr))`.
+- Apliqué `gap` para separación consistente.
+- Usé `align-items: start` para alturas naturales.
+- Ajusté el hero en móvil con `calc(100vh - 90px)`.
+
+### ¿Qué aprendí?
+- Cómo funciona `auto-fit` + `minmax()` para grids adaptables.
+- Uso de `grid-column: 1 / -1` para que un elemento ocupe toda la fila.
+- Cómo `calc()` permite restar la altura del header.
+- Grid elimina la necesidad de media queries para reorganizar.
+
+### Estado
+✅ Día 7 completado — Grid adaptable en Servicios y Paquetes
