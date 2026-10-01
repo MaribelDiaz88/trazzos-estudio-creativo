@@ -21,12 +21,6 @@
 - Cómo funciona Live Server y su URL local (127.0.0.1:5500).
 - Jerarquía correcta de títulos (h1 → h2 → h3).
 
-### ¿Qué me costó?
-- Recordar conceptos al inicio.
-
-### ¿Qué necesito repasar?
-- Más práctica.
-
 ### Estado
 ✅ Día 1 completado
 
@@ -39,12 +33,10 @@
 - Añadí `scroll-behavior: smooth` para navegación fluida.
 - Mejoré accesibilidad con `aria-label` en el nav.
 - Añadí `meta description` para SEO básico.
-- Actualicé datos de contacto reales:
-  - Correo: trazzoscr02@gmail.com
-  - Celular: 6270-2678
+- Actualicé datos de contacto reales.
 - Agregué foto personal de Maribel Díaz Carmona en la sección Nosotros.
 - Organicé estructura: `index.html` en minúscula, logo y foto en `img/`.
-- Corregí errores detectados por W3C (etiquetas `</address>` huérfanas).
+- Corregí errores detectados por W3C.
 - Validación W3C final: 0 errores.
 
 ### ¿Qué aprendí?
@@ -52,24 +44,10 @@
 - Uso de `mailto:` y `tel:` para enlaces funcionales.
 - Uso de `<figure>` + `<figcaption>` para imágenes.
 - Convención de nombres en minúscula.
-- Atributos `width` y `height` en imágenes (rendimiento).
-- Cómo validar HTML con W3C y corregir errores comunes.
-
-### ¿Qué me costó?
-- Renombrar `Index.html` a `index.html` (truco del nombre temporal).
-- Corregir `</address>` duplicados detectados por W3C.
-
-### ¿Qué necesito repasar?
-- Estructura semántica de subsecciones.
-- Box model (para el Día 3).
+- Cómo validar HTML con W3C.
 
 ### Estado
 ✅ Día 2 completado — 0 errores W3C
-
-### Evidencias
-- `img/Evidencia_pag_live_service.png` — Sitio funcionando en Live Server
-- `img/Evidencia_Valitor.png` — Validación W3C sin errores
-- `img/Evidencia_VSC.png` — Código en VS Code
 
 ---
 
@@ -77,31 +55,19 @@
 
 ### ¿Qué hice hoy?
 - Creé el archivo `style.css` completo.
-- Definí variables CSS en `:root`:
-  - `--color-fondo`, `--color-texto`, `--color-acento`
-  - `--fuente-titulo`, `--fuente-texto`
+- Definí variables CSS en `:root`.
 - Apliqué `box-sizing: border-box` universal.
-- Moví `scroll-behavior: smooth` al CSS externo.
 - Implementé enfoque mobile-first con punto de quiebre en `720px`.
 - Añadí `clamp()` para tipografía responsive.
-- Aseguré `44x44px` de área táctil en botones y nav.
+- Aseguré `44x44px` de área táctil.
 - Apliqué identidad visual TRAZZOS (azul rey + dorado).
-- Corregí el `index.html`: tilde de "quien" y diferenciación de celulares.
 
 ### ¿Qué aprendí?
 - Variables CSS en `:root` y su reutilización con `var()`.
 - Box model moderno con `box-sizing: border-box`.
-- Enfoque mobile-first (base = móvil, `@media` agrega).
+- Enfoque mobile-first.
 - `clamp()` para evitar múltiples media queries.
 - Área táctil mínima (44x44px) para accesibilidad móvil.
-
-### ¿Qué me costó?
-- Comprender la diferencia entre mobile-first y desktop-first.
-- Recordar que los `@media` con `min-width` agregan, no arreglan.
-
-### ¿Qué necesito repasar?
-- Uso de `clamp()` en más elementos.
-- Pruebas de accesibilidad con teclado (Tab).
 
 ### Estado
 ✅ Día 3 completado
@@ -118,13 +84,7 @@
 
 ### Resultado de validaciones:
 - HTML5: 0 errors, 0 warnings ✅
-- CSS3: 0 errors, 15 warnings informativos (variables CSS dinámicas + vendor extension) ✅
-
-### ¿Qué aprendí?
-- Cómo usar los validadores oficiales de W3C.
-- La diferencia entre errores y warnings.
-- Que los warnings de variables CSS son normales.
-- La importancia de validar antes de subir.
+- CSS3: 0 errors, 15 warnings informativos ✅
 
 ### Estado
 ✅ Día 4 completado
@@ -139,16 +99,16 @@
   - PC: 1920 × 1080
   - Tablet: 1024 × 768
   - Móvil: 800 × 1200
-- Separé el título (dentro del hero) del texto descriptivo (fuera).
+- Separé el título del texto descriptivo.
 - Agregué un `<h2>` a la sección `#intro` para accesibilidad W3C.
-- Apliqué anidamiento CSS nativo en todos los bloques.
+- Apliqué anidamiento CSS nativo.
 - Estilicé el header con logo en esquina + nav horizontal.
 - Implementé favicon con la "T" dorada.
 - Validación W3C final: 0 errors, 0 warnings.
 
 ### ¿Qué aprendí?
 - Uso de `<picture>` para imágenes responsivas.
-- Anidamiento CSS nativo (sintaxis moderna con `&`).
+- Anidamiento CSS nativo.
 - Composición de un hero profesional.
 - Importancia de las dimensiones exactas de las imágenes.
 - Optimización de peso con squoosh.app.
@@ -156,22 +116,17 @@
 ### Estado
 ✅ Día 5 completado — Semana 1 terminada
 
-### Evidencias
-- Hero en PC
-- Hero en móvil
-- Validación W3C (HTML + CSS)
-
 ---
 
 ## Día 6 — 29/09/2026
 
 ### ¿Qué hice hoy?
 - Revisé que la navegación esté dentro de `<nav>` con `aria-label`.
-- Verifiqué que los 4 enlaces apunten a ids existentes.
+- Verifiqué que los enlaces apunten a ids existentes.
 - Confirmé el contenedor flexible con Flexbox y `gap`.
 - Agregué `:focus-visible` para mejorar la accesibilidad del foco.
 - Probé la navegación con teclado (Tab): el foco es visible.
-- Probé el nav en móvil (400px): no se desborda, se reorganiza en 2 líneas.
+- Probé el nav en móvil: no se desborda, se reorganiza en 2 líneas.
 
 ### ¿Qué aprendí?
 - Cómo funciona `:focus-visible` y su importancia para WCAG 2.2.
@@ -189,7 +144,7 @@
 - Reorganicé la sección Servicios con CSS Grid.
 - Usé `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`.
 - El título `<h2>` ocupa toda la fila con `grid-column: 1 / -1`.
-- La subsección Paquetes también usa Grid: `repeat(auto-fit, minmax(200px, 1fr))`.
+- La subsección Paquetes también usa Grid.
 - Apliqué `gap` para separación consistente.
 - Usé `align-items: start` para alturas naturales.
 - Ajusté el hero en móvil con `calc(100vh - 90px)`.
@@ -197,17 +152,12 @@
 
 ### ¿Qué aprendí?
 - Cómo funciona `auto-fit` + `minmax()` para grids adaptables.
-- Uso de `grid-column: 1 / -1` para que un elemento ocupe toda la fila.
+- Uso de `grid-column: 1 / -1` para ocupar toda la fila.
 - Cómo `calc()` permite restar la altura del header.
 - Grid elimina la necesidad de media queries para reorganizar.
 
 ### Estado
 ✅ Día 7 completado — Grid adaptable en Servicios y Paquetes
-
-### Evidencias
-- Servicios en PC (Grid 2x2)
-- Servicios en móvil (1 columna)
-- Validación W3C sin errores
 
 ---
 
@@ -245,10 +195,68 @@ CSS Nesting (2023). El CSS funciona perfectamente en navegadores modernos.
 ### Estado
 ✅ Día 8 completado — CSS reorganizado + secciones Proceso y CTA con WhatsApp
 
+---
+
+## Día 9 — 01/10/2026
+
+### ¿Qué hice hoy?
+- Probé el sitio en múltiples tamaños de pantalla:
+  - iPhone SE (375px)
+  - Galaxy Z Fold 6 (412px)
+  - iPhone 14 Pro Max (430px)
+  - iPad Mini (768px)
+  - iPad Pro (1024px)
+  - Surface Pro 10 (960px)
+  - Desktop (1440px)
+- Detecté un problema grave de responsividad: el header con logo + título +
+  5 enlaces no cabía en móviles estrechos (375-430px).
+- El "TRAZZOS" del header se cortaba y el texto del hero se salía de la pantalla.
+- Reorganicé el header: en móvil se divide en 2 filas (logo + título arriba,
+  nav abajo); en tablet y desktop queda en 1 fila.
+- Apliqué `clamp()` para tamaños de fuente fluidos.
+- Definí 5 breakpoints responsive:
+  - Móvil chico: < 480px
+  - Móvil grande: 480px - 719px
+  - Tablet: 720px - 1023px
+  - Desktop: 1024px - 1439px
+  - Desktop grande: ≥ 1440px
+- Ajusté la altura del hero según el dispositivo:
+  - Móvil chico: 55vh
+  - Móvil grande: 60vh
+  - Tablet: 70vh
+  - Desktop: 100vh
+- Verifiqué que no hubiera scroll horizontal en ningún tamaño.
+- Probé la navegación con teclado (Tab): el foco sigue visible.
+- Usé DevTools para emular diferentes tamaños de dispositivo.
+
+### ¿Qué aprendí?
+- Cómo identificar problemas responsive reales (no solo teóricos).
+- Cómo reorganizar un header con Flexbox para que quepa en cualquier pantalla.
+- Cómo usar `clamp()` para tipografía que se adapta automáticamente.
+- Cómo definir breakpoints basados en las necesidades del contenido y no en
+  nombres de dispositivos.
+- Cómo verificar scroll horizontal accidental en DevTools.
+- La importancia de probar en múltiples tamaños ANTES de dar por cerrado el diseño.
+
+### Problema encontrado
+El header con 5 enlaces no cabía en móviles de 375-430px. El "TRAZZOS" se
+cortaba y el texto del hero se salía. El sitio se veía bien en desktop pero
+roto en móvil.
+
+### Cómo lo resolví
+1. Reorganicé el header en 2 filas en móvil (Flexbox con `flex-direction: column`).
+2. Ajusté tamaños de fuente con `clamp()`.
+3. Definí 5 breakpoints con `@media`.
+4. Ajusté la altura del hero según el dispositivo.
+5. Verifiqué visualmente cada tamaño en DevTools.
+6. Confirmé que no hubiera scroll horizontal.
+
+### Estado
+✅ Día 9 completado — Sitio responsive verificado y corregido en todos los tamaños
+
 ### Evidencias
-- CSS reorganizado (bloque "Componentes reutilizables")
-- Sección "¿Cómo trabajamos?" con 4 pasos
-- Sección CTA con botón de WhatsApp
+- Captura móvil (Galaxy Z Fold 6, 412px) — header en 2 filas
+- Captura escritorio (Surface Pro 10 / Desktop, 960-1440px) — header en 1 fila
 
 ---
 
@@ -264,5 +272,6 @@ CSS Nesting (2023). El CSS funciona perfectamente en navegadores modernos.
 | 6 | Navegación con Flexbox | ✅ |
 | 7 | CSS Grid | ✅ |
 | 8 | Reorganización CSS por componentes | ✅ |
+| 9 | Diseño Responsive y Adaptable | ✅ |
 
-**Total: 8 días completados** 
+**Total: 9 días completados** 
