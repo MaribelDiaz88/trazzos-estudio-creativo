@@ -126,7 +126,7 @@
 - Confirmé el contenedor flexible con Flexbox y `gap`.
 - Agregué `:focus-visible` para mejorar la accesibilidad del foco.
 - Probé la navegación con teclado (Tab): el foco es visible.
-- Probé el nav en móvil: no se desborda, se reorganiza en 2 líneas.
+- Probé el nav en móvil: no se desborda.
 
 ### ¿Qué aprendí?
 - Cómo funciona `:focus-visible` y su importancia para WCAG 2.2.
@@ -228,6 +228,8 @@ CSS Nesting (2023). El CSS funciona perfectamente en navegadores modernos.
 - Verifiqué que no hubiera scroll horizontal en ningún tamaño.
 - Probé la navegación con teclado (Tab): el foco sigue visible.
 - Usé DevTools para emular diferentes tamaños de dispositivo.
+- Validé el HTML en W3C (Nu Html Checker): 0 errores, 0 warnings.
+- Validé el CSS en W3C (CSS Validator): 0 errores.
 
 ### ¿Qué aprendí?
 - Cómo identificar problemas responsive reales (no solo teóricos).
@@ -255,8 +257,10 @@ roto en móvil.
 ✅ Día 9 completado — Sitio responsive verificado y corregido en todos los tamaños
 
 ### Evidencias
-- Captura móvil (Galaxy Z Fold 6, 412px) — header en 2 filas
-- Captura escritorio (Surface Pro 10 / Desktop, 960-1440px) — header en 1 fila
+- `evidencia_dia_09_galaxy_z_fold_antes.png` — Header roto en Galaxy Z Fold 6
+- `evidencia_dia_09_galaxy_z_fold_despues.png` — Header corregido en Galaxy Z Fold 6
+- `evidencia_dia_09_validacion_w3c_html.png` — Nu Html Checker (0 errores)
+- `evidencia_dia_09_validacion_w3c_css.png` — W3C CSS Validator (0 errores)
 
 ---
 
