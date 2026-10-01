@@ -1,4 +1,4 @@
-# Bitácora SCRUM — Semana 1
+# Bitácora SCRUM — TRAZZOS
 
 **Proyecto:** TRAZZOS — Estudio Creativo Digital
 **Responsable:** Maribel Díaz Carmona
@@ -76,7 +76,7 @@
 ## Día 3 — 17/09/2026
 
 ### ¿Qué hice hoy?
-- Creé el archivo `styles.css` completo.
+- Creé el archivo `style.css` completo.
 - Definí variables CSS en `:root`:
   - `--color-fondo`, `--color-texto`, `--color-acento`
   - `--fuente-titulo`, `--fuente-texto`
@@ -105,13 +105,14 @@
 
 ### Estado
 ✅ Día 3 completado
+
 ---
 
 ## Día 4 — 18/09/2026
 
 ### ¿Qué hice hoy?
 - Validé el `index.html` con W3C Markup Validation Service.
-- Validé el `styles.css` con W3C CSS Validator.
+- Validé el `style.css` con W3C CSS Validator.
 - Ambas validaciones sin errores.
 - Establecí el hábito semanal de validación.
 
@@ -160,7 +161,6 @@
 - Hero en móvil
 - Validación W3C (HTML + CSS)
 
-
 ---
 
 ## Día 6 — 29/09/2026
@@ -181,7 +181,6 @@
 ### Estado
 ✅ Día 6 completado — Navegación funcional, accesible y responsive
 
-
 ---
 
 ## Día 7 — 29/09/2026
@@ -194,6 +193,7 @@
 - Apliqué `gap` para separación consistente.
 - Usé `align-items: start` para alturas naturales.
 - Ajusté el hero en móvil con `calc(100vh - 90px)`.
+- Validación W3C: 0 errors, 0 warnings.
 
 ### ¿Qué aprendí?
 - Cómo funciona `auto-fit` + `minmax()` para grids adaptables.
@@ -203,3 +203,58 @@
 
 ### Estado
 ✅ Día 7 completado — Grid adaptable en Servicios y Paquetes
+
+### Evidencias
+- Servicios en PC (Grid 2x2)
+- Servicios en móvil (1 columna)
+- Validación W3C sin errores
+
+---
+
+## Día 8 — 30/09/2026
+
+### ¿Qué hice hoy?
+- Reorganicé el CSS por componentes y bloques lógicos.
+- Identifiqué componentes repetidos:
+  - Tarjetas con sombra (en Nosotros, Servicios, Contacto)
+  - Botones principales (en Intro)
+- Extraje esos componentes a un bloque nuevo "Componentes reutilizables".
+- Eliminé reglas duplicadas (background-color, border-radius, box-shadow).
+- Mantuve el nesting nativo en todas las secciones.
+- Revisé la especificidad después de reorganizar.
+- Comprobé que los estilos no se rompieran (todo se ve igual).
+- Confirmé el nombre correcto del archivo CSS (`style.css`) para que coincida con el `<link>` del HTML.
+
+### ¿Qué aprendí?
+- Cómo identificar componentes repetidos en el CSS.
+- Cómo extraer estilos comunes a un bloque de componentes.
+- La importancia de la especificidad al reorganizar.
+- Cómo el nesting nativo mejora la legibilidad.
+- La importancia de que el nombre del archivo coincida con el `<link>` del HTML.
+
+### Nota sobre la validación W3C
+El validador W3C CSS marca 14 "errores" relacionados con el nesting
+nativo (& y selectores anidados). Son falsos positivos porque el
+validador aún no reconoce la especificación CSS Nesting (2023). El CSS
+funciona perfectamente en navegadores modernos (Chrome 112+,
+Safari 16.5+, Firefox 117+).
+
+### Estado
+✅ Día 8 completado — CSS reorganizado por componentes, más mantenible
+
+---
+
+## Resumen del proyecto
+
+| Día | Tema | Estado |
+|---|---|---|
+| 1 | HTML5 semántico | ✅ |
+| 2 | 4 secciones ancladas | ✅ |
+| 3 | Variables CSS + Mobile-first | ✅ |
+| 4 | Validación W3C | ✅ |
+| 5 | Hero + Anidamiento CSS | ✅ |
+| 6 | Navegación con Flexbox | ✅ |
+| 7 | CSS Grid | ✅ |
+| 8 | Reorganización CSS por componentes | ✅ |
+
+**Total: 8 días completados** 
