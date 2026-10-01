@@ -14,10 +14,12 @@
    9. Intro
    10. Nosotros
    11. Servicios
-   12. Contacto
-   13. Footer
-   14. Media queries
-   15. Foco visible
+   12. Proceso (¿Cómo trabajamos?)
+   13. Contacto
+   14. CTA (Llamada final a la acción)
+   15. Footer
+   16. Media queries
+   17. Foco visible
    ============================================ */
 
 
@@ -156,7 +158,6 @@ em {
 
 /* ============================================
    4. COMPONENTES REUTILIZABLES
-   (Extraídos para evitar duplicación)
    ============================================ */
 
 /* ---- Componente: Tarjeta con sombra ---- */
@@ -170,7 +171,8 @@ em {
 }
 
 /* ---- Componente: Botón principal ---- */
-#intro a {
+#intro a,
+#cta a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -483,7 +485,46 @@ section {
 
 
 /* ============================================
-   12. CONTACTO
+   12. PROCESO (¿Cómo trabajamos?)
+   ============================================ */
+#proceso {
+    ol {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--espacio-md);
+        margin-top: var(--espacio-lg);
+
+        li {
+            background-color: var(--color-blanco);
+            padding: var(--espacio-md);
+            border-radius: var(--radio);
+            box-shadow: var(--sombra-suave);
+            border-top: 3px solid var(--color-acento);
+            transition: transform var(--transicion), box-shadow var(--transicion);
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--sombra-media);
+            }
+
+            h3 {
+                color: var(--color-azul);
+                font-size: var(--tamano-h3);
+                margin-bottom: var(--espacio-xs);
+            }
+
+            p {
+                color: var(--color-texto-claro);
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+/* ============================================
+   13. CONTACTO
    ============================================ */
 #contacto {
     address {
@@ -530,7 +571,38 @@ section {
 
 
 /* ============================================
-   13. PIE DE PÁGINA (footer)
+   14. CTA (Llamada final a la acción)
+   ============================================ */
+#cta {
+    text-align: center;
+    padding: var(--espacio-xl) var(--espacio-md);
+    background-color: var(--color-azul);
+    border-radius: var(--radio);
+    margin-bottom: var(--espacio-lg);
+    border-bottom: none;
+
+    h2 {
+        color: var(--color-acento);
+        font-size: var(--tamano-h2);
+        margin-bottom: var(--espacio-sm);
+
+        &::after {
+            background-color: var(--color-acento);
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    p {
+        color: var(--color-blanco);
+        font-size: 1.1rem;
+        margin-bottom: var(--espacio-md);
+    }
+}
+
+
+/* ============================================
+   15. PIE DE PÁGINA (footer)
    ============================================ */
 footer {
     background-color: var(--color-azul);
@@ -548,7 +620,7 @@ footer {
 
 
 /* ============================================
-   14. MEDIA QUERIES
+   16. MEDIA QUERIES
    ============================================ */
 
 /* Tablet y superior (>= 720px) */
@@ -601,7 +673,7 @@ footer {
 
 
 /* ============================================
-   15. FOCO VISIBLE (Accesibilidad WCAG 2.2)
+   17. FOCO VISIBLE (Accesibilidad WCAG 2.2)
    ============================================ */
 header nav a:focus-visible {
     outline: 3px solid var(--color-acento);
