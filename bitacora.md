@@ -159,6 +159,9 @@
 ### Estado
 ✅ Día 7 completado — Grid adaptable en Servicios y Paquetes
 
+### Evidencias
+- `evidencia_dia_07_servicios_escritorio.png` — Header roto en Galaxy Z Fold 6
+
 ---
 
 ## Día 8 — 30/09/2026
@@ -257,8 +260,8 @@ roto en móvil.
 ✅ Día 9 completado — Sitio responsive verificado y corregido en todos los tamaños
 
 ### Evidencias
-- `evidencia_dia_09_galaxy_z_fold_antes.png` — Header roto en Galaxy Z Fold 6
-- `evidencia_dia_09_galaxy_z_fold_despues.png` — Header corregido en Galaxy Z Fold 6
+- `evidencia_dia_09_responsive_movil.png` — Header roto en Galaxy Z Fold 6
+- `evidencia_dia_09_responsive_actualizado.png` — Header corregido en Galaxy Z Fold 6
 - `evidencia_dia_09_validacion_w3c_html.png` — Nu Html Checker (0 errores)
 - `evidencia_dia_09_validacion_w3c_css.png` — W3C CSS Validator (0 errores)
 
