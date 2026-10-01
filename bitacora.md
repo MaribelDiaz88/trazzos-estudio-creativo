@@ -217,30 +217,38 @@
 - Reorganicé el CSS por componentes y bloques lógicos.
 - Identifiqué componentes repetidos:
   - Tarjetas con sombra (en Nosotros, Servicios, Contacto)
-  - Botones principales (en Intro)
+  - Botones principales (en Intro y CTA)
 - Extraje esos componentes a un bloque nuevo "Componentes reutilizables".
 - Eliminé reglas duplicadas (background-color, border-radius, box-shadow).
 - Mantuve el nesting nativo en todas las secciones.
 - Revisé la especificidad después de reorganizar.
-- Comprobé que los estilos no se rompieran (todo se ve igual).
-- Confirmé el nombre correcto del archivo CSS (`style.css`) para que coincida con el `<link>` del HTML.
+- Comprobé que los estilos no se rompieran.
+- Agregué dos secciones nuevas:
+  - **Proceso**: "¿Cómo trabajamos?" con 4 pasos en Grid.
+  - **CTA**: Llamada final a la acción con botón de WhatsApp.
+- Vinculé el botón del CTA con WhatsApp (`wa.me/50662702678`).
+- Agregué el enlace "Proceso" en el nav.
 
 ### ¿Qué aprendí?
 - Cómo identificar componentes repetidos en el CSS.
 - Cómo extraer estilos comunes a un bloque de componentes.
 - La importancia de la especificidad al reorganizar.
 - Cómo el nesting nativo mejora la legibilidad.
-- La importancia de que el nombre del archivo coincida con el `<link>` del HTML.
+- Cómo vincular un botón con WhatsApp usando `wa.me/`.
+- Cómo crear una sección de proceso con Grid adaptable.
 
 ### Nota sobre la validación W3C
-El validador W3C CSS marca 14 "errores" relacionados con el nesting
-nativo (& y selectores anidados). Son falsos positivos porque el
-validador aún no reconoce la especificación CSS Nesting (2023). El CSS
-funciona perfectamente en navegadores modernos (Chrome 112+,
-Safari 16.5+, Firefox 117+).
+El validador W3C CSS marca 14 "errores" por el nesting nativo. Son
+falsos positivos porque el validador aún no reconoce la especificación
+CSS Nesting (2023). El CSS funciona perfectamente en navegadores modernos.
 
 ### Estado
-✅ Día 8 completado — CSS reorganizado por componentes, más mantenible
+✅ Día 8 completado — CSS reorganizado + secciones Proceso y CTA con WhatsApp
+
+### Evidencias
+- CSS reorganizado (bloque "Componentes reutilizables")
+- Sección "¿Cómo trabajamos?" con 4 pasos
+- Sección CTA con botón de WhatsApp
 
 ---
 
