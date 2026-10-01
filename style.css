@@ -1,53 +1,70 @@
 /* ============================================
    TRAZZOS — Estudio Creativo Digital
    Hoja de estilos principal
-   Día 3: Variables CSS + Box Model + Mobile-First
-   Día 5: Hero con imagen + Anidamiento CSS nativo
-   Día 6: Hero a pantalla completa + Navegación con Flexbox
-   Día 7: CSS Grid para tarjetas de servicios
+   
+   Organización por componentes:
+   1. Variables y configuración general
+   2. Reset y box model
+   3. Tipografía
+   4. Componentes reutilizables (tarjetas y botones)
+   5. Header (con nesting)
+   6. Main
+   7. Secciones generales
+   8. Hero
+   9. Intro
+   10. Nosotros
+   11. Servicios
+   12. Contacto
+   13. Footer
+   14. Media queries
+   15. Foco visible
    ============================================ */
 
 
 /* ============================================
-   1. VARIABLES CSS (:root)
+   1. VARIABLES Y CONFIGURACIÓN GENERAL
    ============================================ */
 :root {
+    /* Colores base */
     --color-fondo: #F8F9FB;
     --color-texto: #1A1A1A;
     --color-acento: #D4AF37;
-    --fuente-titulo: Georgia, "Times New Roman", serif;
-    --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-
     --color-azul: #0A1F44;
     --color-azul-claro: #142B5A;
     --color-acento-claro: #E8C766;
     --color-blanco: #FFFFFF;
     --color-texto-claro: #4A4A4A;
 
+    /* Tipografía */
+    --fuente-titulo: Georgia, "Times New Roman", serif;
+    --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --tamano-base: 1rem;
     --tamano-h1: clamp(2rem, 5vw + 1rem, 3rem);
     --tamano-h2: clamp(1.5rem, 3vw + 1rem, 2rem);
     --tamano-h3: clamp(1.1rem, 1.5vw + 0.8rem, 1.25rem);
     --linea-altura: 1.6;
 
+    /* Espaciado */
     --espacio-xs: 0.5rem;
     --espacio-sm: 1rem;
     --espacio-md: 1.5rem;
     --espacio-lg: 2rem;
     --espacio-xl: clamp(2rem, 5vw, 4rem);
 
+    /* Bordes, sombras y transiciones */
     --radio: 8px;
     --sombra-suave: 0 2px 8px rgba(10, 31, 68, 0.08);
     --sombra-media: 0 4px 16px rgba(10, 31, 68, 0.12);
-
     --transicion: 0.3s ease;
+
+    /* Layout */
     --area-tactil: 44px;
     --ancho-max: min(90%, 70rem);
 }
 
 
 /* ============================================
-   2. RESET Y BOX MODEL MODERNO
+   2. RESET Y BOX MODEL
    ============================================ */
 *,
 *::before,
@@ -95,15 +112,15 @@ h2 {
     position: relative;
     padding-bottom: var(--espacio-sm);
     color: var(--color-azul);
-}
 
-h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--color-acento);
-    margin-top: var(--espacio-xs);
+    &::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: var(--color-acento);
+        margin-top: var(--espacio-xs);
+    }
 }
 
 h3 {
@@ -120,10 +137,10 @@ a {
     color: var(--color-azul);
     text-decoration: none;
     transition: color var(--transicion);
-}
 
-a:hover {
-    color: var(--color-acento);
+    &:hover {
+        color: var(--color-acento);
+    }
 }
 
 strong {
@@ -138,7 +155,45 @@ em {
 
 
 /* ============================================
-   4. ENCABEZADO (header) — logo esquina + nav
+   4. COMPONENTES REUTILIZABLES
+   (Extraídos para evitar duplicación)
+   ============================================ */
+
+/* ---- Componente: Tarjeta con sombra ---- */
+#nosotros article,
+#servicios article,
+#contacto address {
+    background-color: var(--color-blanco);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-suave);
+    padding: var(--espacio-md);
+}
+
+/* ---- Componente: Botón principal ---- */
+#intro a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--area-tactil);
+    padding: var(--espacio-sm) var(--espacio-lg);
+    background-color: var(--color-acento);
+    color: var(--color-azul);
+    font-weight: 700;
+    border-radius: var(--radio);
+    transition: all var(--transicion);
+
+    &:hover,
+    &:focus {
+        background-color: var(--color-azul);
+        color: var(--color-acento);
+        transform: translateY(-2px);
+        box-shadow: var(--sombra-media);
+    }
+}
+
+
+/* ============================================
+   5. HEADER (logo esquina + nav)
    ============================================ */
 header {
     background-color: var(--color-azul);
@@ -206,7 +261,7 @@ header {
 
 
 /* ============================================
-   5. CONTENIDO PRINCIPAL (main)
+   6. CONTENIDO PRINCIPAL (main)
    ============================================ */
 main {
     max-width: var(--ancho-max);
@@ -216,7 +271,7 @@ main {
 
 
 /* ============================================
-   6. SECCIONES
+   7. SECCIONES GENERALES
    ============================================ */
 section {
     padding: var(--espacio-lg) 0;
@@ -238,8 +293,7 @@ section {
 
 
 /* ============================================
-   7. SECCIÓN INICIO — HERO pantalla completa
-   (resta la altura del header)
+   8. HERO (pantalla completa)
    ============================================ */
 #inicio {
     position: relative;
@@ -301,7 +355,7 @@ section {
 
 
 /* ============================================
-   8. SECCIÓN INTRO (texto + botón debajo del hero)
+   9. INTRO (descripción + CTA)
    ============================================ */
 #intro {
     text-align: center;
@@ -330,32 +384,11 @@ section {
         color: var(--color-texto-claro);
         line-height: 1.7;
     }
-
-    a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: var(--area-tactil);
-        padding: var(--espacio-sm) var(--espacio-lg);
-        background-color: var(--color-acento);
-        color: var(--color-azul);
-        font-weight: 700;
-        border-radius: var(--radio);
-        transition: all var(--transicion);
-
-        &:hover,
-        &:focus {
-            background-color: var(--color-azul);
-            color: var(--color-acento);
-            transform: translateY(-2px);
-            box-shadow: var(--sombra-media);
-        }
-    }
 }
 
 
 /* ============================================
-   9. SECCIÓN NOSOTROS
+   10. NOSOTROS
    ============================================ */
 #nosotros {
     figure {
@@ -379,19 +412,14 @@ section {
     }
 
     article {
-        background-color: var(--color-blanco);
-        padding: var(--espacio-lg);
-        border-radius: var(--radio);
         border-left: 4px solid var(--color-acento);
-        box-shadow: var(--sombra-suave);
         margin: var(--espacio-md) 0;
     }
 }
 
 
 /* ============================================
-   10. SECCIÓN SERVICIOS — CSS GRID
-   (auto-fit + minmax para tarjetas adaptables)
+   11. SERVICIOS (CSS Grid)
    ============================================ */
 #servicios {
     display: grid;
@@ -405,10 +433,6 @@ section {
     }
 
     > article {
-        background-color: var(--color-blanco);
-        padding: var(--espacio-md);
-        border-radius: var(--radio);
-        box-shadow: var(--sombra-suave);
         border-top: 3px solid var(--color-acento);
         transition: transform var(--transicion), box-shadow var(--transicion);
 
@@ -459,16 +483,11 @@ section {
 
 
 /* ============================================
-   11. SECCIÓN CONTACTO
+   12. CONTACTO
    ============================================ */
 #contacto {
     address {
-        font-style: normal;
-        background-color: var(--color-blanco);
-        padding: var(--espacio-lg);
-        border-radius: var(--radio);
         border-left: 4px solid var(--color-acento);
-        box-shadow: var(--sombra-suave);
         margin-bottom: var(--espacio-md);
 
         strong {
@@ -511,7 +530,7 @@ section {
 
 
 /* ============================================
-   12. PIE DE PÁGINA (footer)
+   13. PIE DE PÁGINA (footer)
    ============================================ */
 footer {
     background-color: var(--color-azul);
@@ -529,8 +548,10 @@ footer {
 
 
 /* ============================================
-   13. MEDIA QUERY: min-width 720px
+   14. MEDIA QUERIES
    ============================================ */
+
+/* Tablet y superior (>= 720px) */
 @media (min-width: 720px) {
     header {
         figure img {
@@ -547,10 +568,7 @@ footer {
     }
 }
 
-
-/* ============================================
-   14. MEDIA QUERY: min-width 1024px
-   ============================================ */
+/* Desktop grande (>= 1024px) */
 @media (min-width: 1024px) {
     :root {
         --espacio-xl: 5rem;
@@ -561,10 +579,7 @@ footer {
     }
 }
 
-
-/* ============================================
-   15. MEDIA QUERY: móvil — ajustes hero e intro
-   ============================================ */
+/* Móvil (< 720px) */
 @media (max-width: 719px) {
     #inicio {
         h2 {
@@ -586,7 +601,7 @@ footer {
 
 
 /* ============================================
-   16. FOCO VISIBLE (Accesibilidad WCAG 2.2)
+   15. FOCO VISIBLE (Accesibilidad WCAG 2.2)
    ============================================ */
 header nav a:focus-visible {
     outline: 3px solid var(--color-acento);
