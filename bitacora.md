@@ -282,3 +282,34 @@ roto en móvil.
 | 9 | Diseño Responsive y Adaptable | ✅ |
 
 **Total: 9 días completados** 
+
+---
+
+## Día 10 — 02/10/2026
+
+### ¿Qué hice hoy?
+- Consolidé el proyecto mediante un proceso completo de QA.
+- Validé el HTML en W3C: 0 errores, 0 warnings.
+- Validé el CSS en W3C: 0 errores.
+- Probé la navegación interna: 5 enlaces funcionan.
+- Probé las 7 secciones del sitio.
+- Probé las tarjetas (Servicios, Paquetes, Proceso).
+- Probé 3 anchos: 375px, 768px, 1440px.
+- Comprobé que no hubiera scroll horizontal.
+- Verifiqué el foco visible con Tab.
+- Revisé imágenes y textos.
+- Corregí el hero moviéndolo fuera del `<main>` para que ocupe pantalla completa en todos los dispositivos.
+
+### Resultado del QA
+- ✅ HTML: 0 errores
+- ✅ CSS: 0 errores
+- ✅ Navegación: 5/5 enlaces funcionando
+- ✅ Secciones: 7/7 funcionando
+- ✅ Tarjetas: todas responsive
+- ✅ Hero: pantalla completa
+- ✅ Sin scroll horizontal
+- ✅ Foco visible con Tab
+- ✅ Sin pendientes
+
+### Estado
+✅ Día 10 completado — PROYECTO FINAL COMPLETO
