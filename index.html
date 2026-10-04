@@ -11,7 +11,7 @@
 <body>
 
     <!-- ============================================
-         ENCABEZADO GLOBAL (logo en esquina + nav)
+         ENCABEZADO GLOBAL (logo + título + nav)
          ============================================ -->
     <header>
         <figure>
@@ -32,29 +32,29 @@
         </nav>
     </header>
 
+    <!-- ==========================================
+         SECCIÓN 1: HERO (FUERA del main)
+         ========================================== -->
+    <section id="inicio">
+        <picture>
+            <source media="(min-width: 1024px)" srcset="img/hero_pc.avif">
+            <source media="(min-width: 720px)" srcset="img/hero_tablet.avif">
+            <img src="img/hero_cell_phone.avif"
+                 alt="Estudio creativo digital TRAZZOS — Soluciones digitales que posicionan y construyen identidad"
+                 width="800"
+                 height="1200">
+        </picture>
+
+        <h2>Creamos contenido que posiciona, vende y construye identidad</h2>
+    </section>
+
     <!-- ============================================
          CONTENIDO PRINCIPAL
          ============================================ -->
     <main>
 
         <!-- ==========================================
-             SECCIÓN 1: HERO (pantalla completa)
-             ========================================== -->
-        <section id="inicio">
-            <picture>
-                <source media="(min-width: 1024px)" srcset="img/hero_pc.avif">
-                <source media="(min-width: 720px)" srcset="img/hero_tablet.avif">
-                <img src="img/hero_cell_phone.avif"
-                     alt="Estudio creativo digital TRAZZOS — Soluciones digitales que posicionan y construyen identidad"
-                     width="800"
-                     height="1200">
-            </picture>
-
-            <h2>Creamos contenido que posiciona, vende y construye identidad</h2>
-        </section>
-
-        <!-- ==========================================
-             SECCIÓN 2: INTRO (descripción + CTA)
+             SECCIÓN 2: INTRO
              ========================================== -->
         <section id="intro">
             <h2>Bienvenido a TRAZZOS</h2>
