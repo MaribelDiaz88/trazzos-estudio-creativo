@@ -313,3 +313,50 @@ roto en móvil.
 
 ### Estado
 ✅ Día 10 completado — PROYECTO FINAL COMPLETO
+
+
+---
+
+## Día 11 — 08/10/2026
+
+### ¿Qué hice hoy?
+- Creé el repositorio del proyecto en GitHub.
+- Definí un nombre claro: `trazzos-estudio-creativo`.
+- Creé el README inicial con la descripción del proyecto.
+- Agregué todos los archivos del proyecto:
+  - `index.html`
+  - `style.css`
+  - `script.js`
+  - `bitacora.md`
+  - `README.md`
+  - `img/` (carpeta con todas las imágenes)
+  - `Levantamiento_Requerimientos_Trazzos.docx`
+- Realicé el primer commit con mensaje descriptivo.
+- Mantuve 32 commits con mensajes descriptivos durante todo el proyecto.
+- Comprobé que los archivos correctos llegaron al repositorio.
+- Verifiqué que no se subieron contraseñas ni archivos innecesarios.
+- Guardé la URL del repositorio como fuente de evidencia.
+- Definí el repositorio como fuente principal de evidencia del avance.
+
+### ¿Qué aprendí?
+- Qué es un repositorio y para qué sirve.
+- Qué es un commit y cómo usarlo correctamente.
+- La diferencia entre repositorio local y remoto.
+- Cómo mantener una trazabilidad clara del proyecto.
+- La importancia de usar mensajes de commit descriptivos.
+
+### Conceptos clave del Día 11
+- **repository:** carpeta donde se guardan los archivos del proyecto en la nube.
+- **commit:** punto de guardado con un mensaje descriptivo.
+- **main:** rama principal del repositorio.
+- **remote:** conexión entre el repositorio local y GitHub.
+- **README:** archivo de presentación del proyecto.
+
+### Estado
+✅ Día 11 completado — Repositorio creado y trazabilidad establecida
+
+### Evidencias
+- Repositorio: https://github.com/MaribelDiaz88/trazzos-estudio-creativo
+- 32 commits con mensajes descriptivos
+- README inicial completado
+- Todos los archivos del proyecto subidos
