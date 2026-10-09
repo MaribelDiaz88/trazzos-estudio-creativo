@@ -360,3 +360,95 @@ roto en móvil.
 - 32 commits con mensajes descriptivos
 - README inicial completado
 - Todos los archivos del proyecto subidos
+
+---
+
+## Día 12 — JavaScript y DOM
+
+**Fecha:** 08/10/2026
+
+**Objetivo del día:**
+Conectar JavaScript con el DOM e inspeccionar elementos antes de crear interacciones.
+
+### ✅ Lo que se hizo
+
+1. **Correcciones al HTML (`index.html`)**
+   - Agregado `<script src="script.js"></script>` antes de `</body>`
+   - Cerrado correctamente el `<footer>`
+   - Movido el `<aside>` (botón WhatsApp) fuera del footer
+   - Añadidos enlaces legales (Política, Términos, Cookies)
+
+2. **Completado del CSS (`style.css`)**
+   - Archivo estaba cortado en `@media (max-width: 479px)`
+   - Añadidos los 5 media queries completos (móvil chico, móvil grande, tablet, desktop, desktop XL)
+   - Añadido bloque 19 de foco visible (WCAG 2.2)
+
+3. **JavaScript (`script.js`)**
+   - Archivo estaba vacío
+   - Añadido código de verificación del DOM:
+     - Detección de header, nav, botón WhatsApp, formulario
+     - Conteo de enlaces del nav (5) y tarjetas de servicios (4)
+     - Scroll suave para enlaces internos
+   - Mensajes en consola verifican que todo carga correctamente
+
+4. **Formulario con Formspree**
+   - Configurado endpoint: `https://formspree.io/f/xdeagdzp`
+   - Prueba exitosa: mensaje llegó a trazzoscr02@gmail.com
+   - Añadidos campos ocultos: `_subject`, `_next`, `_gotcha` (anti-spam)
+
+###  Problemas encontrados y soluciones
+
+| Problema | Solución |
+|----------|----------|
+| `<script>` faltante en HTML | Agregado antes de `</body>` |
+| `<footer>` sin cerrar | Cerrado correctamente |
+| `<aside>` dentro del `<footer>` | Movido fuera como hermano |
+| CSS cortado en `@media` | Completado con 5 media queries |
+| `script.js` vacío | Llenado con código funcional |
+| Formspree con placeholder | Configurado con código real |
+
+###  Auditorías realizadas
+
+**WAVE (Accesibilidad):**
+- AIM Score: 9.4/10
+- 0 errores graves
+- 33 elementos de estructura
+- 10 elementos ARIA
+- 2 contrast errors (resueltos con contorno azul oscuro en el hero)
+
+**Lighthouse (Rendimiento, Accesibilidad, SEO):**
+- Performance: 86
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
+
+### Aprendizajes
+
+- Uso de DevTools (Elements, Console, Network, Lighthouse)
+- Cómo interpretar el panel Styles
+- CSS Nesting (`&::after`)
+- Conexión HTML + CSS + JS correctamente
+- `document.addEventListener("DOMContentLoaded")`
+- Configuración de Formspree paso a paso
+- Cálculo del contraste WCAG
+- Auditorías con WAVE y Lighthouse
+
+###  Enlaces
+
+- Sitio local: `http://127.0.0.1:5500/`
+- Repositorio GitHub: https://github.com/MaribelDiaz88/trazzos-estudio-creativo
+- Formspree: https://formspree.io
+- WAVE: https://wave.webaim.org
+
+
+
+### ✅ Estado del Día 12
+
+- [x] script.js conectado
+- [x] Prueba de consola
+- [x] Commit en GitHub
+- [x] Auditorías completadas
+- [ ] Evidencias adjuntas (pendiente)
+- [ ] Notion actualizado (pendiente)
+
+**Fin del Día 12.**
