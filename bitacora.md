@@ -615,3 +615,30 @@ En todos los casos, el formulario **bloquea el envío** si hay errores.
 - [x] Capturas de evidencia
 
 **Fin del Día 14.**
+---
+
+## Día 15 — Completar flujo de validación con mensaje de confirmación
+
+**Fecha:** 15/10/2026
+
+**Objetivo del día:**
+Completar el flujo de validación y dejar una versión estable del proyecto.
+
+### Lo que se hizo
+
+1. **HTML** — Añadido `<p id="mensaje-confirmacion" role="status" aria-live="polite" hidden>` después del formulario.
+
+2. **CSS** — Añadidos estilos verdes para el mensaje de confirmación.
+
+3. **JavaScript** — Cambio de estrategia: en lugar de redirigir a Formspree, se usa `fetch()` para enviar los datos sin salir de la página. Si la respuesta es OK, se limpia el formulario y se muestra el mensaje verde.
+
+4. **Pruebas** — Formulario probado con datos válidos e inválidos, en escritorio y móvil.
+
+### Aprendizajes
+
+- Uso de `fetch()` con `async/await`
+- Uso de `FormData` para capturar datos
+- Uso de `try/catch` para manejar errores
+- Uso de `role="status"` y `aria-live="polite"`
+
+**Fin del Día 15.**
