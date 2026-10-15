@@ -642,3 +642,59 @@ Completar el flujo de validación y dejar una versión estable del proyecto.
 - Uso de `role="status"` y `aria-live="polite"`
 
 **Fin del Día 15.**
+
+---
+
+## Día 16 — Revisar la navegación completa con teclado
+
+**Fecha:** 15/10/2026
+
+**Objetivo del día:**
+Revisar la navegación completa mediante teclado y corregir barreras evidentes.
+
+### Lo que se hizo
+
+**1. Auditoría con teclado**
+
+Se recorrió todo el sitio usando solo Tab, Shift+Tab, Enter, Space y Escape.
+
+**2. Hallazgos encontrados**
+
+- **Hallazgo 1:** El orden del foco es lógico y correcto en todo el sitio.
+- **Hallazgo 2:** El correo (`mailto:`) tenía un foco débil (solo borde negro fino) mientras el teléfono (`tel:`) tenía foco con fondo dorado. **Inconsistencia visual.**
+- **Hallazgo 3:** El campo "Nombre" del formulario mostraba **doble borde dorado** (outline + border). Se veía excesivo.
+
+**3. Correcciones aplicadas**
+
+- **CSS:** Se añadió un bloque nuevo para unificar el foco visible en todos los enlaces del contenido (`mailto:`, `tel:`, enlaces internos, enlaces del footer).
+- **CSS:** Se modificó el foco de los inputs del formulario con `border-color: transparent` para eliminar el doble borde.
+- **CSS:** Se añadió foco visible al botón flotante de WhatsApp.
+
+**4. Pruebas después de las correcciones**
+
+- Tab por los enlaces del contenido → todos tienen fondo dorado ✅
+- Tab por los campos del formulario → un solo borde dorado ✅
+- Tab por el botón WhatsApp → outline dorado ✅
+- El foco pasa bien por todo el sitio ✅
+
+### Aprendizajes
+
+- Cómo auditar la navegación con teclado
+- Cómo identificar problemas de foco visible
+- Uso de `:focus-visible` para indicadores de foco
+- Importancia de la consistencia visual en el foco
+- Cómo unificar estilos con selectores agrupados
+
+### Estado
+
+- [x] Recorrer todo el sitio con teclado
+- [x] Comprobar orden lógico del foco
+- [x] Comprobar que el foco sea visible
+- [x] Comprobar que ningún elemento quede inaccesible
+- [x] Revisar botones y enlaces
+- [x] Revisar el menú móvil
+- [x] Usar ARIA solo cuando corresponde
+- [x] Registrar al menos 3 hallazgos
+- [x] Corregir y volver a probar
+
+**Fin del Día 16.**
