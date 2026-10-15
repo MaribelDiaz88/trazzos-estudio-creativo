@@ -1,170 +1,244 @@
-/* ============================================================
-   1. MENÚ MÓVIL
-   ============================================================ */
-const toggle = document.querySelector(".menu-toggle");
-const nav = document.getElementById("menu-principal");
+/* ============================================
+   TRAZZOS — Estudio Creativo Digital
+   JavaScript principal
+   ============================================ */
 
-if (toggle && nav) {
-  toggle.addEventListener("click", () => {
-    const abierto = nav.classList.toggle("abierto");
-    toggle.setAttribute("aria-expanded", abierto);
-    toggle.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
-  });
+console.log("🚀 TRAZZOS — JavaScript cargado correctamente");
 
-  nav.querySelectorAll("a").forEach((enlace) => {
-    enlace.addEventListener("click", () => {
-      nav.classList.remove("abierto");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Abrir menú");
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("📄 DOM completamente cargado");
+
+    /* ============================================
+       1. Verificaciones del DOM (Día 12)
+       ============================================ */
+
+    const header = document.querySelector("header");
+    if (header) {
+        console.log("✅ Header: encontrado");
+    }
+
+    const nav = document.querySelector("header nav");
+    if (nav) {
+        console.log("✅ Nav: encontrado");
+    }
+
+    const enlacesNav = document.querySelectorAll("header nav a");
+    console.log("🔗 Enlaces en el nav: " + enlacesNav.length);
+
+    const tarjetasServicios = document.querySelectorAll("#servicios > article");
+    console.log("🃏 Tarjetas de servicios: " + tarjetasServicios.length);
+
+    const botonWhatsApp = document.querySelector("body > aside a");
+    if (botonWhatsApp) {
+        console.log("✅ Botón WhatsApp: encontrado");
+    }
+
+    const formulario = document.querySelector("#contacto form");
+    if (formulario) {
+        console.log("✅ Formulario de contacto: encontrado");
+    }
+
+    /* ============================================
+       2. Scroll suave (Día 12)
+       ============================================ */
+
+    document.querySelectorAll('a[href^="#"]').forEach((enlace) => {
+        enlace.addEventListener("click", function (e) {
+            const destino = document.querySelector(this.getAttribute("href"));
+            if (destino) {
+                e.preventDefault();
+                destino.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
     });
-  });
+    console.log("✨ Scroll suave activado");
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && nav.classList.contains("abierto")) {
-      nav.classList.remove("abierto");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Abrir menú");
-      toggle.focus();
-    }
-  });
-}
+    /* ============================================
+       3. Menú móvil hamburguesa (Día 13)
+       ============================================ */
 
-/* ============================================================
-   2. VALIDACIÓN DEL FORMULARIO DE CONTACTO — DÍA 14
-   ============================================================ */
-const formulario = document.querySelector("#formulario-contacto");
+    const menuToggle = document.querySelector("#menu-toggle");
+    const menuNav = document.querySelector("#menu-principal");
 
-if (formulario) {
-  const nombre  = document.querySelector("#nombre");
-  const correo  = document.querySelector("#correo");
-  const mensaje = document.querySelector("#mensaje");
-  const estado  = document.querySelector("#estado-formulario");
+    if (menuToggle && menuNav) {
+        menuToggle.addEventListener("click", () => {
+            const abierto = menuNav.classList.toggle("abierto");
+            menuToggle.setAttribute("aria-expanded", abierto);
+            if (abierto) {
+                menuToggle.setAttribute("aria-label", "Cerrar menú de navegación");
+            } else {
+                menuToggle.setAttribute("aria-label", "Abrir menú de navegación");
+            }
+        });
 
-  const campos = [
-    { elemento: nombre,  error: document.querySelector("#error-nombre")  },
-    { elemento: correo,  error: document.querySelector("#error-correo")  },
-    { elemento: mensaje, error: document.querySelector("#error-mensaje") }
-  ];
+        menuNav.querySelectorAll("a").forEach((enlace) => {
+            enlace.addEventListener("click", () => {
+                menuNav.classList.remove("abierto");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Abrir menú de navegación");
+            });
+        });
 
-  function establecerError(campo, elementoError, texto) {
-    campo.setCustomValidity(texto);
-    campo.setAttribute("aria-invalid", texto ? "true" : "false");
-    elementoError.textContent = texto;
-  }
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && menuNav.classList.contains("abierto")) {
+                menuNav.classList.remove("abierto");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Abrir menú de navegación");
+                menuToggle.focus();
+            }
+        });
 
-  function validarNombre() {
-    const valor = nombre.value.trim();
-    let error = "";
-
-    if (valor.length === 0) {
-      error = "Escriba su nombre.";
-    } else if (valor.length < 3) {
-      error = "El nombre debe tener al menos 3 caracteres.";
-    } else if (valor.length > 80) {
-      error = "El nombre no puede superar 80 caracteres.";
-    } else if (/[\u0000-\u001F\u007F]/u.test(valor)) {
-      error = "El nombre contiene caracteres de control no permitidos.";
+        console.log("✅ Menú móvil: configurado");
     }
 
-    establecerError(nombre, document.querySelector("#error-nombre"), error);
-    return error === "";
-  }
+    /* ============================================
+       4. Validación del formulario (Día 14 + Día 15)
+       ============================================ */
 
-  function validarMensaje() {
-    const valor = mensaje.value.trim();
-    let error = "";
+    const mensajeConfirmacion = document.querySelector("#mensaje-confirmacion");
 
-    if (valor.length === 0) {
-      error = "Escriba su mensaje.";
-    } else if (valor.length < 10) {
-      error = "El mensaje debe tener al menos 10 caracteres.";
-    } else if (valor.length > 1000) {
-      error = "El mensaje no puede superar 1000 caracteres.";
-    } else if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/u.test(valor)) {
-      error = "El mensaje contiene caracteres de control no permitidos.";
-    }
+    if (formulario) {
+        const campoNombre = formulario.querySelector("#nombre");
+        const campoEmail = formulario.querySelector("#email");
+        const campoTelefono = formulario.querySelector("#telefono");
+        const campoMensaje = formulario.querySelector("#mensaje");
 
-    establecerError(mensaje, document.querySelector("#error-mensaje"), error);
-    return error === "";
-  }
+        const mensajesPersonalizados = {
+            nombre: {
+                valueMissing: "Por favor, escribe tu nombre completo.",
+                tooShort: "El nombre debe tener al menos 2 letras.",
+                tooLong: "El nombre es demasiado largo (máximo 50 letras)."
+            },
+            email: {
+                valueMissing: "Por favor, escribe tu correo electrónico.",
+                typeMismatch: "El correo no es válido. Ejemplo: nombre@dominio.com."
+            },
+            telefono: {
+                patternMismatch: "El celular debe tener 8 dígitos sin guiones. Ejemplo: 12345678."
+            },
+            mensaje: {
+                valueMissing: "Por favor, escribe un mensaje.",
+                tooShort: "El mensaje debe tener al menos 10 caracteres.",
+                tooLong: "El mensaje es demasiado largo (máximo 500 caracteres)."
+            }
+        };
 
-  function validarCorreo() {
-    const valor = correo.value.trim();
-    let error = "";
-
-    if (valor.length === 0) {
-      error = "Escriba su correo electrónico.";
-    } else if (valor.length > 254) {
-      error = "El correo no puede superar 254 caracteres.";
-    } else if (/[\s\u0000-\u001F\u007F]/u.test(valor)) {
-      error = "El correo no puede contener espacios ni caracteres de control.";
-    } else if (!correo.validity.valid) {
-      error = "Revise el formato del correo electrónico.";
-    } else {
-      const partes = valor.split("@");
-
-      if (partes.length !== 2) {
-        error = "Introduzca una sola dirección de correo.";
-      } else {
-        const [usuario, dominio] = partes;
-        const etiquetas = dominio.split(".");
-
-        if (
-          usuario.length > 64 ||
-          usuario.startsWith(".") ||
-          usuario.endsWith(".") ||
-          usuario.includes("..")
-        ) {
-          error = "Revise la parte del correo anterior a la arroba.";
-        } else if (
-          etiquetas.length < 2 ||
-          etiquetas.some(
-            (etiqueta) =>
-              etiqueta.length === 0 ||
-              etiqueta.length > 63 ||
-              !/^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/.test(etiqueta)
-          )
-        ) {
-          error = "Introduzca un dominio de correo válido.";
+        function obtenerMensajeError(campo, mensajes) {
+            if (campo.validity.valueMissing) {
+                return mensajes.valueMissing || "Este campo es obligatorio.";
+            }
+            if (campo.validity.typeMismatch) {
+                return mensajes.typeMismatch || "El formato no es válido.";
+            }
+            if (campo.validity.patternMismatch) {
+                return mensajes.patternMismatch || "El formato no coincide.";
+            }
+            if (campo.validity.tooShort) {
+                return mensajes.tooShort || "El texto es demasiado corto.";
+            }
+            if (campo.validity.tooLong) {
+                return mensajes.tooLong || "El texto es demasiado largo.";
+            }
+            return "";
         }
-      }
+
+        const campos = [
+            { campo: campoNombre, mensajes: mensajesPersonalizados.nombre },
+            { campo: campoEmail, mensajes: mensajesPersonalizados.email },
+            { campo: campoTelefono, mensajes: mensajesPersonalizados.telefono },
+            { campo: campoMensaje, mensajes: mensajesPersonalizados.mensaje }
+        ];
+
+        campos.forEach(({ campo, mensajes }) => {
+            if (!campo) return;
+
+            campo.addEventListener("input", () => {
+                campo.setCustomValidity("");
+            });
+
+            campo.addEventListener("invalid", () => {
+                const mensaje = obtenerMensajeError(campo, mensajes);
+                campo.setCustomValidity(mensaje);
+            });
+        });
+
+        formulario.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            let hayErrores = false;
+
+            campos.forEach(({ campo, mensajes }) => {
+                if (!campo) return;
+                campo.setCustomValidity("");
+
+                if (!campo.checkValidity()) {
+                    const mensaje = obtenerMensajeError(campo, mensajes);
+                    campo.setCustomValidity(mensaje);
+                    hayErrores = true;
+                }
+            });
+
+            if (hayErrores) {
+                if (mensajeConfirmacion) {
+                    mensajeConfirmacion.hidden = true;
+                    mensajeConfirmacion.textContent = "";
+                }
+
+                const primerError = formulario.querySelector(":invalid");
+                if (primerError) {
+                    primerError.focus();
+                    primerError.reportValidity();
+                }
+
+                console.warn("⚠️ Formulario con errores. Corrige antes de enviar.");
+            } else {
+                console.log("✅ Formulario válido. Enviando a Formspree...");
+
+                const datos = new FormData(formulario);
+
+                try {
+                    const respuesta = await fetch(formulario.action, {
+                        method: "POST",
+                        body: datos,
+                        headers: { "Accept": "application/json" }
+                    });
+
+                    if (respuesta.ok) {
+                        console.log("✅ Mensaje enviado correctamente a Formspree");
+                        formulario.reset();
+
+                        if (mensajeConfirmacion) {
+                            mensajeConfirmacion.textContent = "✅ ¡Gracias! Tu mensaje fue enviado correctamente.";
+                            mensajeConfirmacion.hidden = false;
+                            mensajeConfirmacion.scrollIntoView({ behavior: "smooth", block: "center" });
+                        }
+                    } else {
+                        console.error("❌ Error al enviar. Status: " + respuesta.status);
+                        if (mensajeConfirmacion) {
+                            mensajeConfirmacion.textContent = "❌ Hubo un error al enviar. Intenta de nuevo.";
+                            mensajeConfirmacion.hidden = false;
+                        }
+                    }
+                } catch (error) {
+                    console.error("❌ Error de conexión:", error);
+                    if (mensajeConfirmacion) {
+                        mensajeConfirmacion.textContent = "❌ Error de conexión. Revisa tu internet e intenta de nuevo.";
+                        mensajeConfirmacion.hidden = false;
+                    }
+                }
+            }
+        });
+
+        console.log("✅ Validación del formulario: configurada");
     }
 
-    establecerError(correo, document.querySelector("#error-correo"), error);
-    return error === "";
-  }
-
-  nombre.addEventListener("input", validarNombre);
-  correo.addEventListener("input", validarCorreo);
-  mensaje.addEventListener("input", validarMensaje);
-
-  formulario.addEventListener("submit", (evento) => {
-    evento.preventDefault();
-
-    const nombreValido  = validarNombre();
-    const correoValido  = validarCorreo();
-    const mensajeValido = validarMensaje();
-
-    if (!nombreValido || !correoValido || !mensajeValido) {
-      estado.textContent = "Revise los campos indicados antes de continuar.";
-      formulario.reportValidity();
-
-      const primerInvalido = campos.find(
-        (item) => !item.elemento.validity.valid
-      );
-      if (primerInvalido) {
-        primerInvalido.elemento.focus();
-      }
-      return;
+    if (mensajeConfirmacion) {
+        console.log("✅ Mensaje de confirmación: configurado");
     }
 
-    estado.textContent =
-      "Validación correcta. Los datos están listos para la siguiente etapa.";
+    /* ============================================
+       5. Mensaje final
+       ============================================ */
 
-    formulario.reset();
-
-    campos.forEach(({ elemento, error }) => {
-      establecerError(elemento, error, "");
-    });
-  });
-}
+    console.log("%cTRAZZOS — Estudio Creativo Digital", "color: #D4AF37; font-size: 16px; font-weight: bold;");
+});
