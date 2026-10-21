@@ -698,3 +698,94 @@ Se recorrió todo el sitio usando solo Tab, Shift+Tab, Enter, Space y Escape.
 - [x] Corregir y volver a probar
 
 **Fin del Día 16.**
+
+---
+
+## Día 17 — Mejorar accesibilidad visual y alternativas textuales
+
+**Fecha:** 21/10/2026
+
+**Objetivo del día:**
+Mejorar accesibilidad visual y revisar alternativas textuales de imágenes.
+
+### Lo que se hizo
+
+**1. Auditoría de contraste con WebAIM**
+
+Se verificaron 5 combinaciones de colores del sitio:
+
+| Combinación | Ratio | WCAG AA | Estado |
+|-------------|-------|---------|--------|
+| Azul `#0A1F44` sobre Dorado `#D4AF37` | 7.72:1 | ✅ PASS | Correcto |
+| Texto gris `#4A4A4A` sobre Fondo `#F8F9FB` | ~7:1 | ✅ PASS | Correcto |
+| Blanco `#FFFFFF` sobre Azul `#0A1F44` | ~15:1 | ✅ PASS | Correcto |
+| Azul `#0A1F44` sobre Blanco `#FFFFFF` | ~15:1 | ✅ PASS | Correcto |
+| **Dorado `#D4AF37` sobre Blanco `#FFFFFF`** | **2.1:1** | ❌ **FAIL** | **Corregido** |
+
+**2. Corrección del contraste**
+
+Se identificó que el dorado `#D4AF37` sobre blanco falla WCAG AA (2.1:1). Se añadió una nueva variable CSS `--color-acento-oscuro: #8B6914` que tiene un ratio de **5.08:1** sobre blanco, cumpliendo WCAG AA.
+
+Se aplicó este color nuevo a:
+- `a:hover` (hover de enlaces sobre fondo blanco)
+- `em` (texto en énfasis sobre fondo blanco)
+
+**3. Auditoría de `alt` en imágenes**
+
+Todas las imágenes del sitio tienen `alt` apropiado:
+
+| Imagen | `alt` | Tipo |
+|--------|-------|------|
+| `img_logo_trazzoscr02.avif` | "Logotipo oficial de TRAZZOS — T dorada sobre fondo azul rey" | Informativa |
+| `hero_pc.avif` | "Estudio creativo digital TRAZZOS — Soluciones digitales..." | Informativa |
+| `disenadora_rosa.avif` | "Retrato profesional de Maribel Díaz Carmona..." | Informativa |
+| `favicon_T.avif` | (sin alt, es favicon) | Decorativa |
+
+**4. Prueba de zoom al 200%**
+
+Se probó el sitio con zoom al 200% en Chrome. Inicialmente, el texto del hero ("construye identidad") se cortaba por abajo.
+
+**Solución aplicada:**
+- Se cambió el `#inicio` a Flexbox (`display: flex`, `align-items: center`, `justify-content: center`).
+- Se cambió `#inicio h2` a `position: relative` con `max-height: calc(100vh - var(--altura-header) - 2rem)` y `overflow-y: auto`.
+- Se aseguró que `#inicio picture` sea `position: absolute; inset: 0; z-index: 0`.
+
+**Resultado:** El texto ya no se corta al 200% de zoom. Se ve completo y centrado.
+
+**5. Verificación en navegadores**
+
+Se verificó el sitio en **Chrome** y **Microsoft Edge**. Ambos muestran el sitio correctamente sin diferencias visuales ni de funcionalidad. No se probó en Firefox ni Brave porque no estaban instalados.
+
+### Problemas encontrados y soluciones
+
+**Problema 1:** El dorado `#D4AF37` sobre blanco tenía un ratio de 2.1:1 (falla WCAG AA).
+
+**Solución:** Se añadió `--color-acento-oscuro: #8B6914` con ratio 5.08:1 y se aplicó a `a:hover` y `em`.
+
+**Problema 2:** Al hacer zoom al 200%, el texto del hero se cortaba.
+
+**Solución:** Se cambió el diseño del hero a Flexbox y se ajustó el `h2` para que no se salga del contenedor.
+
+### Aprendizajes
+
+- Uso de WebAIM Contrast Checker para verificar contraste.
+- Importancia de mantener ratios de contraste ≥ 4.5:1 (WCAG AA).
+- Uso de variables CSS para tener un dorado accesible sobre blanco.
+- Cómo verificar `alt` apropiado en imágenes.
+- Cómo usar Flexbox para centrar contenido sin `position: absolute`.
+- Cómo probar zoom y verificar que no se pierda contenido.
+
+### Estado
+
+- [x] Revisar contraste de texto normal.
+- [x] Revisar contraste de controles y elementos relevantes.
+- [x] Revisar `alt` de imágenes informativas.
+- [x] Usar `alt` vacío en imágenes decorativas cuando corresponda.
+- [x] Evitar repetir en `alt` texto que ya está visible.
+- [x] Comprobar foco visible.
+- [x] Probar zoom del navegador.
+- [x] Revisar que el contenido no se pierda al ampliar.
+- [x] Corregir problemas y repetir pruebas.
+- [x] Documentar decisiones de accesibilidad.
+
+**Fin del Día 17.**

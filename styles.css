@@ -8,6 +8,7 @@
     --color-texto: #1A1A1A;
     --color-acento: #D4AF37;
     --color-acento-claro: #FFD966;
+    --color-acento-oscuro: #8B6914;
     --color-azul: #0A1F44;
     --color-azul-claro: #142B5A;
     --color-blanco: #FFFFFF;
@@ -107,7 +108,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-acento);
+    color: var(--color-acento-oscuro);
 }
 
 strong {
@@ -116,7 +117,7 @@ strong {
 }
 
 em {
-    color: var(--color-acento);
+    color: var(--color-acento-oscuro);
     font-style: italic;
 }
 
@@ -295,6 +296,7 @@ header > a.logo-titulo h1 {
     letter-spacing: 1px;
 }
 
+/* --- SECCIÓN HERO (CORREGIDA CON FLEXBOX) --- */
 #inicio {
     position: relative;
     overflow: hidden;
@@ -305,14 +307,18 @@ header > a.logo-titulo h1 {
     min-height: 100vh;
     border-radius: 0;
     border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #inicio picture {
     display: block;
     width: 100%;
     height: 100%;
-    min-height: calc(100vh - var(--altura-header));
-    position: relative;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
 }
 
 #inicio picture::after {
@@ -328,24 +334,23 @@ header > a.logo-titulo h1 {
     display: block;
     width: 100%;
     height: 100%;
-    min-height: calc(100vh - var(--altura-header));
     object-fit: cover;
     object-position: center;
 }
 
 #inicio h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     z-index: 2;
     color: #D4AF37;
     font-size: clamp(1.2rem, 4vw, 3rem);
     text-align: center;
     margin: 0;
-    padding: 0 var(--espacio-sm);
+    padding: var(--espacio-md) var(--espacio-sm);
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     max-width: 92%;
+    max-height: calc(100vh - var(--altura-header) - 2rem);
+    overflow-y: auto;
+    overflow-wrap: break-word;
     line-height: 1.25;
     font-weight: 700;
 }
@@ -378,11 +383,6 @@ section > h2 {
 section > h2::after {
     margin-left: auto;
     margin-right: auto;
-}
-
-#inicio {
-    min-height: 100vh;
-    scroll-margin-top: var(--altura-header);
 }
 
 #intro {
@@ -825,15 +825,6 @@ body > aside a:focus {
 
     section {
         padding: 3rem 1rem;
-    }
-
-    #inicio {
-        min-height: 100vh;
-    }
-
-    #inicio picture,
-    #inicio picture img {
-        min-height: calc(100vh - var(--altura-header));
     }
 
     #inicio h2 {
