@@ -789,3 +789,35 @@ Se verificó el sitio en **Chrome** y **Microsoft Edge**. Ambos muestran el siti
 - [x] Documentar decisiones de accesibilidad.
 
 **Fin del Día 17.**
+---
+
+## Día 18 — Migración de HTML5/CSS/JS a WordPress Local
+
+### Estado
+- [x] Crear el sitio local en LocalWP (trazzos.local).
+- [x] Configurar el tema `trazzos-tema` en `wp-content/themes`.
+- [x] Crear los archivos base: `style.css`, `functions.php`, `header.php`, `footer.php`, `index.php`, `front-page.php`.
+- [x] Organizar los recursos (CSS, JS, imágenes) en la carpeta `assets`.
+- [x] Activar el tema en WordPress.
+- [x] Corregir las rutas de las imágenes usando `get_template_directory_uri()`.
+- [x] Solucionar la carga del JavaScript (script.js).
+- [x] Verificar el funcionamiento del menú hamburguesa en móvil.
+
+### Problemas Solucionados
+1. **Rutas de imágenes rotas:** WordPress no reconocía `img/...`. Se solucionó usando las funciones de PHP de WordPress.
+2. **Menú móvil inactivo:** El `script.js` no se cargaba desde `functions.php` en el entorno local. Se solucionó inyectando el `<script>` directamente en el `header.php` y agregando la regla CSS `.abierto` en `styles.css`.
+
+### Pruebas Realizadas
+- Se revisó la consola del navegador (F12) y ya no hay errores. El `script.js` carga con estado 200 (OK).
+- El menú hamburguesa se despliega correctamente en vista móvil.
+- El diseño es idéntico al proyecto original.
+
+### Entregables
+- Tema comprimido en ZIP (`diaz-maribel-tema.zip`).
+- Código subido a GitHub (commit realizado).
+- Capturas de pantalla guardadas en la carpeta de evidencias.
+
+### Ideas para el próximo día
+- Implementar un efecto visual de "papel rasgado" (torn paper edge) en el header, inspirado en la página de Café Britt.
+
+**Fin del Día 18.**
