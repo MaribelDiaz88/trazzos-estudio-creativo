@@ -821,3 +821,30 @@ Se verificó el sitio en **Chrome** y **Microsoft Edge**. Ambos muestran el siti
 - Implementar un efecto visual de "papel rasgado" (torn paper edge) en el header, inspirado en la página de Café Britt.
 
 **Fin del Día 18.**
+---
+
+## Día 19 — Tema Hijo y Evaluación de Complementos
+
+**Fecha:** 29/10/2026
+**Objetivo:** Crear la estructura de un tema hijo para extender el sitio sin modificar el tema padre, y evaluar la necesidad de plugins y componentes adicionales.
+
+### 1. Estructura del Tema Hijo
+Se creó la carpeta `trazzos-hijo` dentro de `wp-content/themes/` con los siguientes archivos:
+- `style.css`: Contiene la metadata requerida (`Theme Name: Trazzos Hijo`, `Template: trazzos-tema`).
+- `functions.php`: Carga los estilos del tema padre y del hijo correctamente.
+**Nota técnica:** Se verificó que el valor `Template` coincidiera exactamente con el nombre de la carpeta del tema padre para asegurar la herencia.
+
+### 2. Justificación de Plugins y Componentes
+Siguiendo las instrucciones de la jornada, se evaluó el sitio para determinar si requería plugins o componentes adicionales, concluyendo lo siguiente:
+- **Plugins de respaldo (ej. UpdraftPlus):** No se instalaron. Se cuenta con respaldo manual del código y el proyecto está versionado y seguro en GitHub.
+- **Plugins antispam (reCAPTCHA / Cloudflare Turnstile):** No se instalaron. El formulario de contacto utiliza **Formspree**, el cual ya incorpora sus propios filtros antispam y cuenta con una trampa "honeypot" (`_gotcha`) en el código HTML. Instalar un CAPTCHA requeriría modificar el código fuente para validar tokens en el servidor, añadiendo complejidad innecesaria a un formulario que ya es seguro.
+- **Modales / Popups:** No se implementaron. El diseño One-Page no requiere ventanas emergentes que interrumpan la navegación del usuario.
+- **Bloques y Widgets:** El tema está construido con HTML personalizado en `front-page.php`. No se añadieron widgets o bloques adicionales para no duplicar contenido ni alterar el diseño aprobado.
+
+### 3. Pruebas Realizadas
+- El tema hijo aparece correctamente en Apariencia > Temas.
+- El tema hijo se activó con éxito y el sitio web carga sin errores.
+- No se modificó ningún archivo del tema padre (`trazzos-tema`).
+- El diseño original (hero, menú, formulario) se mantiene intacto tras la activación.
+
+**Fin del Día 19.**
