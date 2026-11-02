@@ -848,3 +848,66 @@ Siguiendo las instrucciones de la jornada, se evaluó el sitio para determinar s
 - El diseño original (hero, menú, formulario) se mantiene intacto tras la activación.
 
 **Fin del Día 19.**
+---
+
+## Día 20 — Cierre del Entregable 4: Validación y Autoverificación en WordPress
+
+**Fecha:** 30/10/2026
+**Objetivo de la jornada:** Trasladar el proyecto al entorno WordPress, sustituir el formulario de práctica y validar el flujo completo (navegación, formulario y consola) para cumplir con el Definition of Done.
+
+### 1. Comprender antes de construir (Conceptos clave)
+
+Antes de dar por cerrada la jornada, explico con mis propias palabras los conceptos aplicados:
+- **Theme integration (Integración del tema):** Es el proceso de adaptar el HTML, CSS y JS estático a la jerarquía de WordPress. En TRAZZOS, el HTML se dividió en `header.php`, `footer.php` y `front-page.php` para que WordPress los procese dinámicamente.
+- **Templates (Plantillas):** Son los archivos PHP que definen qué se muestra. Usamos `front-page.php` porque WordPress lo reconoce como la página de inicio por defecto.
+- **Assets (Recursos):** Son los archivos CSS, JS e imágenes. Se cargan correctamente mediante `functions.php` usando `wp_enqueue_style` y `wp_enqueue_script`, no escribiéndolos directamente en el HTML.
+- **Form security y anti-spam:** Es la protección del formulario contra bots. Se usa **Formspree**, que incluye filtros propios, y un campo oculto "honeypot" (`_gotcha`) que los humanos no ven, pero los bots llenan, provocando el rechazo del envío.
+
+### 2. Autoverificación (Rúbrica del profesor)
+
+- **¿Puedo explicar qué construí hoy sin leer el código?** Sí. Explico la integración del tema (división en plantillas), la carga de assets vía `functions.php` y el flujo del formulario con Formspree y validación JS.
+- **¿Probé el resultado en el navegador?** Sí, en Chrome y Edge, tanto en escritorio como en vista móvil.
+- **¿Revisé la consola si apareció un problema?** Sí, la consola (F12) está limpia, sin errores de JavaScript ni de red.
+- **¿Comprobé el resultado en al menos una condición diferente?** Sí, probé el formulario con datos vacíos (bloquea el envío), datos inválidos (muestra mensajes personalizados) y datos válidos (envía y muestra mensaje verde). También probé la navegación en móvil (menú hamburguesa) y escritorio.
+- **¿Corregí los errores conocidos antes de marcar la tarea como terminada?** Sí, los problemas de rutas de imágenes y carga del script se resolvieron en el Día 18.
+
+### 3. Pruebas Realizadas (Checklist de construcción)
+
+**Prueba de Navegación:**
+- [x] Los 5 enlaces del menú (Inicio, Servicios, Proceso, Nosotros, Contacto) funcionan con scroll suave.
+- [x] El menú hamburguesa en móvil abre, cierra y se cierra al hacer clic en un enlace.
+- [x] El foco visible con la tecla Tab funciona en todos los enlaces y botones.
+- [x] No hay errores en la consola del navegador (F12) relacionados con la navegación.
+
+**Prueba de Formulario:**
+- [x] **Validación:** Al intentar enviar vacío, aparecen los mensajes personalizados en español (ej. "Por favor, escribe tu nombre completo").
+- [x] **Bloqueo:** El formulario no se envía si el correo es inválido o el mensaje es corto.
+- [x] **Envío exitoso:** Con datos válidos, se envía vía `fetch()` a Formspree sin recargar la página.
+- [x] **Confirmación:** Aparece el mensaje verde (`role="status"`, `aria-live="polite"`) y el formulario se limpia.
+- [x] **Recepción:** El correo de prueba llegó correctamente a la bandeja de Formspree.
+
+**Revisión de Consola y Errores PHP/WordPress:**
+- [x] La consola no muestra errores en rojo.
+- [x] No hay errores de PHP visibles en el sitio ni en el panel de administración.
+- [x] Los recursos (CSS, JS, imágenes) cargan con estado 200 (OK) en Network.
+
+### 4. Definition of Done
+
+La jornada se considera terminada porque:
+- El sitio funciona correctamente dentro de WordPress.
+- Conserva su estructura y diseño original (One-Page).
+- El formulario tiene un flujo de envío configurado (Formspree), validado y probado.
+
+Evidencias de la prueba de formulario:
+
+Se realizó la prueba de envío con datos válidos en el entorno local (trazzos.local).
+
+El formulario procesó los datos vía fetch() y mostró el mensaje de confirmación en pantalla ("¡Gracias! Tu mensaje fue enviado correctamente").
+
+Se verificó la recepción del correo en la bandeja de Formspree.
+
+El menú hamburguesa y los estilos del tema hijo se mantienen funcionales.
+
+**Entregable 4 completado.**
+
+**Fin del Día 20.**
