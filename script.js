@@ -3,10 +3,10 @@
    JavaScript principal
    ============================================ */
 
-console.log("🚀 TRAZZOS — JavaScript cargado correctamente");
+console.log("TRAZZOS — JavaScript cargado correctamente");
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("📄 DOM completamente cargado");
+    console.log(" DOM completamente cargado");
 
     /* ============================================
        1. Verificaciones del DOM (Día 12)
@@ -14,28 +14,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const header = document.querySelector("header");
     if (header) {
-        console.log("✅ Header: encontrado");
+        console.log(" Header: encontrado");
     }
 
     const nav = document.querySelector("header nav");
     if (nav) {
-        console.log("✅ Nav: encontrado");
+        console.log(" Nav: encontrado");
     }
 
     const enlacesNav = document.querySelectorAll("header nav a");
-    console.log("🔗 Enlaces en el nav: " + enlacesNav.length);
+    console.log(" Enlaces en el nav: " + enlacesNav.length);
 
     const tarjetasServicios = document.querySelectorAll("#servicios > article");
-    console.log("🃏 Tarjetas de servicios: " + tarjetasServicios.length);
+    console.log(" Tarjetas de servicios: " + tarjetasServicios.length);
 
     const botonWhatsApp = document.querySelector("body > aside a");
     if (botonWhatsApp) {
-        console.log("✅ Botón WhatsApp: encontrado");
+        console.log(" Botón WhatsApp: encontrado");
     }
 
     const formulario = document.querySelector("#contacto form");
     if (formulario) {
-        console.log("✅ Formulario de contacto: encontrado");
+        console.log(" Formulario de contacto: encontrado");
     }
 
     /* ============================================
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        console.log("✅ Menú móvil: configurado");
+        console.log(" Menú móvil: configurado");
     }
 
     /* ============================================
@@ -190,9 +190,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     primerError.reportValidity();
                 }
 
-                console.warn("⚠️ Formulario con errores. Corrige antes de enviar.");
+                console.warn(" Formulario con errores. Corrige antes de enviar.");
             } else {
-                console.log("✅ Formulario válido. Enviando a Formspree...");
+                console.log(" Formulario válido. Enviando a Formspree...");
 
                 const datos = new FormData(formulario);
 
@@ -204,36 +204,36 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
 
                     if (respuesta.ok) {
-                        console.log("✅ Mensaje enviado correctamente a Formspree");
+                        console.log(" Mensaje enviado correctamente a Formspree");
                         formulario.reset();
 
                         if (mensajeConfirmacion) {
-                            mensajeConfirmacion.textContent = "✅ ¡Gracias! Tu mensaje fue enviado correctamente.";
+                            mensajeConfirmacion.textContent = " ¡Gracias! Tu mensaje fue enviado correctamente.";
                             mensajeConfirmacion.hidden = false;
                             mensajeConfirmacion.scrollIntoView({ behavior: "smooth", block: "center" });
                         }
                     } else {
-                        console.error("❌ Error al enviar. Status: " + respuesta.status);
+                        console.error(" Error al enviar. Status: " + respuesta.status);
                         if (mensajeConfirmacion) {
-                            mensajeConfirmacion.textContent = "❌ Hubo un error al enviar. Intenta de nuevo.";
+                            mensajeConfirmacion.textContent = " Hubo un error al enviar. Intenta de nuevo.";
                             mensajeConfirmacion.hidden = false;
                         }
                     }
                 } catch (error) {
-                    console.error("❌ Error de conexión:", error);
+                    console.error(" Error de conexión:", error);
                     if (mensajeConfirmacion) {
-                        mensajeConfirmacion.textContent = "❌ Error de conexión. Revisa tu internet e intenta de nuevo.";
+                        mensajeConfirmacion.textContent = " Error de conexión. Revisa tu internet e intenta de nuevo.";
                         mensajeConfirmacion.hidden = false;
                     }
                 }
             }
         });
 
-        console.log("✅ Validación del formulario: configurada");
+        console.log("Validación del formulario: configurada");
     }
 
     if (mensajeConfirmacion) {
-        console.log("✅ Mensaje de confirmación: configurado");
+        console.log("Mensaje de confirmación: configurado");
     }
 
     /* ============================================

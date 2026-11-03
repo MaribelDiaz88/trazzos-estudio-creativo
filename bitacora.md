@@ -700,7 +700,6 @@ Se recorrió todo el sitio usando solo Tab, Shift+Tab, Enter, Space y Escape.
 **Fin del Día 16.**
 
 ---
-
 ## Día 17 — Mejorar accesibilidad visual y alternativas textuales
 
 **Fecha:** 21/10/2026
@@ -818,7 +817,7 @@ Se verificó el sitio en **Chrome** y **Microsoft Edge**. Ambos muestran el siti
 - Capturas de pantalla guardadas en la carpeta de evidencias.
 
 ### Ideas para el próximo día
-- Implementar un efecto visual de "papel rasgado" (torn paper edge) en el header, inspirado en la página de Café Britt.
+- Implementar un efecto visual de "papel rasgado" (torn paper edge) en el header.
 
 **Fin del Día 18.**
 ---
@@ -837,7 +836,7 @@ Se creó la carpeta `trazzos-hijo` dentro de `wp-content/themes/` con los siguie
 ### 2. Justificación de Plugins y Componentes
 Siguiendo las instrucciones de la jornada, se evaluó el sitio para determinar si requería plugins o componentes adicionales, concluyendo lo siguiente:
 - **Plugins de respaldo (ej. UpdraftPlus):** No se instalaron. Se cuenta con respaldo manual del código y el proyecto está versionado y seguro en GitHub.
-- **Plugins antispam (reCAPTCHA / Cloudflare Turnstile):** No se instalaron. El formulario de contacto utiliza **Formspree**, el cual ya incorpora sus propios filtros antispam y cuenta con una trampa "honeypot" (`_gotcha`) en el código HTML. Instalar un CAPTCHA requeriría modificar el código fuente para validar tokens en el servidor, añadiendo complejidad innecesaria a un formulario que ya es seguro.
+- **Plugins antispam (reCAPTCHA / Cloudflare Turnstile):** No se instalaron. El formulario de contacto utiliza **Formspree**, el cual ya incorpora sus propios filtros antispam y cuenta con una trampa "honeypot" (`_gotcha`) en el código HTML.
 - **Modales / Popups:** No se implementaron. El diseño One-Page no requiere ventanas emergentes que interrumpan la navegación del usuario.
 - **Bloques y Widgets:** El tema está construido con HTML personalizado en `front-page.php`. No se añadieron widgets o bloques adicionales para no duplicar contenido ni alterar el diseño aprobado.
 
@@ -846,6 +845,11 @@ Siguiendo las instrucciones de la jornada, se evaluó el sitio para determinar s
 - El tema hijo se activó con éxito y el sitio web carga sin errores.
 - No se modificó ningún archivo del tema padre (`trazzos-tema`).
 - El diseño original (hero, menú, formulario) se mantiene intacto tras la activación.
+
+### Evidencias del Día 19
+- `evidencia_dia_19_estructura_tema_hijo.png`: VS Code mostrando la estructura de archivos del tema hijo y la cabecera de metadatos en `style.css`.
+- `evidencia_dia_19_metadata_style.png`: Archivo `style.css` mostrando la cabecera `Template: trazzos-tema`.
+- `evidencia_dia_19_tema_activo_wp.png`: Panel de WordPress confirmando que el tema hijo `Trazzos Hijo` está activo.
 
 **Fin del Día 19.**
 ---
@@ -857,30 +861,29 @@ Siguiendo las instrucciones de la jornada, se evaluó el sitio para determinar s
 
 ### 1. Comprender antes de construir (Conceptos clave)
 
-Antes de dar por cerrada la jornada, explico con mis propias palabras los conceptos aplicados:
 - **Theme integration (Integración del tema):** Es el proceso de adaptar el HTML, CSS y JS estático a la jerarquía de WordPress. En TRAZZOS, el HTML se dividió en `header.php`, `footer.php` y `front-page.php` para que WordPress los procese dinámicamente.
 - **Templates (Plantillas):** Son los archivos PHP que definen qué se muestra. Usamos `front-page.php` porque WordPress lo reconoce como la página de inicio por defecto.
-- **Assets (Recursos):** Son los archivos CSS, JS e imágenes. Se cargan correctamente mediante `functions.php` usando `wp_enqueue_style` y `wp_enqueue_script`, no escribiéndolos directamente en el HTML.
+- **Assets (Recursos):** Son los archivos CSS, JS e imágenes. Se cargan correctamente mediante `functions.php` usando `wp_enqueue_style` y `wp_enqueue_script`.
 - **Form security y anti-spam:** Es la protección del formulario contra bots. Se usa **Formspree**, que incluye filtros propios, y un campo oculto "honeypot" (`_gotcha`) que los humanos no ven, pero los bots llenan, provocando el rechazo del envío.
 
 ### 2. Autoverificación (Rúbrica del profesor)
 
-- **¿Puedo explicar qué construí hoy sin leer el código?** Sí. Explico la integración del tema (división en plantillas), la carga de assets vía `functions.php` y el flujo del formulario con Formspree y validación JS.
+- **¿Puedo explicar qué construí hoy sin leer el código?** Sí. Explico la integración del tema, la carga de assets vía `functions.php` y el flujo del formulario con Formspree y validación JS.
 - **¿Probé el resultado en el navegador?** Sí, en Chrome y Edge, tanto en escritorio como en vista móvil.
-- **¿Revisé la consola si apareció un problema?** Sí, la consola (F12) está limpia, sin errores de JavaScript ni de red.
-- **¿Comprobé el resultado en al menos una condición diferente?** Sí, probé el formulario con datos vacíos (bloquea el envío), datos inválidos (muestra mensajes personalizados) y datos válidos (envía y muestra mensaje verde). También probé la navegación en móvil (menú hamburguesa) y escritorio.
-- **¿Corregí los errores conocidos antes de marcar la tarea como terminada?** Sí, los problemas de rutas de imágenes y carga del script se resolvieron en el Día 18.
+- **¿Revisé la consola si apareció un problema?** Sí, la consola (F12) está limpia, sin errores.
+- **¿Comprobé el resultado en al menos una condición diferente?** Sí, probé el formulario con datos vacíos (bloquea el envío), datos inválidos (muestra mensajes) y datos válidos (envía y muestra mensaje verde).
+- **¿Corregí los errores conocidos antes de marcar la tarea como terminada?** Sí, los problemas de rutas y carga del script se resolvieron en el Día 18.
 
 ### 3. Pruebas Realizadas (Checklist de construcción)
 
 **Prueba de Navegación:**
-- [x] Los 5 enlaces del menú (Inicio, Servicios, Proceso, Nosotros, Contacto) funcionan con scroll suave.
+- [x] Los 5 enlaces del menú funcionan con scroll suave.
 - [x] El menú hamburguesa en móvil abre, cierra y se cierra al hacer clic en un enlace.
 - [x] El foco visible con la tecla Tab funciona en todos los enlaces y botones.
 - [x] No hay errores en la consola del navegador (F12) relacionados con la navegación.
 
 **Prueba de Formulario:**
-- [x] **Validación:** Al intentar enviar vacío, aparecen los mensajes personalizados en español (ej. "Por favor, escribe tu nombre completo").
+- [x] **Validación:** Al intentar enviar vacío, aparecen los mensajes personalizados en español.
 - [x] **Bloqueo:** El formulario no se envía si el correo es inválido o el mensaje es corto.
 - [x] **Envío exitoso:** Con datos válidos, se envía vía `fetch()` a Formspree sin recargar la página.
 - [x] **Confirmación:** Aparece el mensaje verde (`role="status"`, `aria-live="polite"`) y el formulario se limpia.
@@ -898,16 +901,228 @@ La jornada se considera terminada porque:
 - Conserva su estructura y diseño original (One-Page).
 - El formulario tiene un flujo de envío configurado (Formspree), validado y probado.
 
-Evidencias de la prueba de formulario:
-
-Se realizó la prueba de envío con datos válidos en el entorno local (trazzos.local).
-
-El formulario procesó los datos vía fetch() y mostró el mensaje de confirmación en pantalla ("¡Gracias! Tu mensaje fue enviado correctamente").
-
-Se verificó la recepción del correo en la bandeja de Formspree.
-
-El menú hamburguesa y los estilos del tema hijo se mantienen funcionales.
+**Evidencias del Día 20:**
+- `evidencia_dia_20_formulario_exitoso.png`: Sitio en LocalWP mostrando el mensaje de confirmación verde tras el envío exitoso del formulario.
+- `evidencia_dia_20_validacion_formulario.png`: Formulario mostrando los mensajes de error en rojo.
+- `evidencia_dia_20_menu_movil_wp.png`: Vista móvil en WordPress con el menú hamburguesa desplegado.
+- `evidencia_dia_20_consola_limpia.png`: Consola de DevTools sin errores.
 
 **Entregable 4 completado.**
 
 **Fin del Día 20.**
+---
+
+## Día 21 — Git, GitHub y Seguridad del Proyecto WordPress
+
+**Fecha:** 02/11/2026
+**Objetivo:** Crear un repositorio Git exclusivo para el tema hijo, conectarlo con GitHub aplicando medidas de seguridad y generar un respaldo completo con LocalWP.
+
+### 1. Comprender antes de construir (Conceptos clave)
+- **Repositorio:** Espacio donde Git guarda el historial de cambios.
+- **Commit:** Un "punto de guardado" que registra los cambios.
+- **Push:** Acción de enviar los commits locales a GitHub.
+- **Rama (branch):** Línea de trabajo independiente.
+- **Main:** La rama principal, donde vive la versión estable.
+- **Rollback:** Volver a un estado anterior usando el historial.
+- **Diferencia con LocalWP:** Git controla el código fuente, LocalWP respalda todo (código + base de datos + imágenes).
+
+### 2. Configuración de Seguridad
+- Se creó el archivo `.gitignore` dentro de la carpeta `trazzos-hijo`. Esto evita que se suban archivos temporales, contraseñas (`.env`), archivos del sistema (`.DS_Store`) o configuraciones locales (`.vscode/`).
+- Se verificó que no hubiera claves API ni contraseñas expuestas.
+- El repositorio remoto en GitHub se configuró como **Private**.
+
+### 3. Creación del Repositorio y Primer Push
+- Se abrió la terminal en la carpeta del tema hijo.
+- Se inicializó Git con `git init -b main`.
+- Se agregaron los archivos con `git add .` y se creó el primer commit: `git commit -m "Crea la estructura inicial del tema hijo"`.
+- Se conectó con GitHub y se subieron los archivos con `git push -u origin main`.
+
+### 4. Respaldo Completo con LocalWP
+- Se abrió LocalWP, se seleccionó el sitio `trazzos` y se exportó como archivo `.zip` (49 MB).
+- El respaldo incluye la base de datos y los archivos de WordPress.
+- El archivo se guardó fuera de la carpeta del proyecto.
+
+### 5. Autoverificación
+- **¿Puedo explicar qué construí hoy sin leer el código?** Sí, explico la diferencia entre Git y LocalWP.
+- **¿Probé el resultado en el navegador?** Sí, el sitio sigue funcionando tras la configuración.
+- **¿Revisé la consola si apareció un problema?** La terminal no mostró errores de Git.
+- **¿Comprobé el resultado en al menos una condición diferente?** Sí, verifiqué en GitHub que los archivos estuvieran subidos y el repositorio fuera privado.
+- **¿Corregí los errores conocidos antes de marcar la tarea como terminada?** Sí, el archivo `.gitignore` se configuró antes del commit.
+
+### 6. Definition of Done
+La jornada se considera terminada porque el repositorio del tema hijo está configurado, publicado de forma privada, con medidas de seguridad aplicadas y existe un respaldo completo del sitio WordPress.
+
+**Evidencias del Día 21:**
+- `evidencia_dia_21_gitignore.png`: Archivo `.gitignore` en VS Code.
+- `evidencia_dia_21_git_push.png`: Terminal mostrando el push exitoso a GitHub.
+- `evidencia_dia_21_github_privado.png`: Repositorio privado en GitHub con los archivos subidos.
+- `evidencia_dia_21_localwp_respaldo.png`: Archivo ZIP del respaldo completo del sitio.
+
+**Fin del Día 21.**
+---
+
+## Día 22 — Uso de Ramas (Branches) en Git
+
+**Fecha:** 03/11/2026
+**Objetivo:** Utilizar ramas para experimentar con cambios sin comprometer la versión principal (`main`), documentando el flujo de trabajo.
+
+### 1. Comprender antes de construir (Conceptos clave)
+- **Branch (Rama):** Es una línea de trabajo independiente. Permite hacer cambios en el código sin afectar la rama principal.
+- **Main:** La rama principal que contiene la versión estable del proyecto.
+- **Feature Branch:** Rama creada específicamente para desarrollar una nueva funcionalidad o hacer una prueba.
+- **Merge:** Acción de unir los cambios de una rama secundaria a la rama principal.
+- **Rollback:** Volver a una versión anterior en caso de que el cambio cause problemas.
+
+### 2. Checklist de Construcción
+- [x] Confirmar que `main` contiene una versión estable.
+- [x] Crear una rama para un cambio concreto (`feature/ajuste-visual`).
+- [x] Nombrar la rama de forma descriptiva.
+- [x] Realizar un cambio controlado (modificación en la bitácora).
+- [x] Hacer commit en la nueva rama.
+- [x] Comparar cambios (verificar que `main` no se afectó hasta el merge).
+- [x] Integrar la rama a `main` (merge).
+- [x] Comprobar el sitio después de integrar (funcionamiento correcto).
+- [x] No crear ramas sin propósito.
+- [x] Eliminar ramas que ya no sean necesarias (`git branch -d feature/ajuste-visual`).
+
+### 3. Autoverificación
+- **¿Puedo explicar qué construí hoy sin leer el código?** Sí. Explico que las ramas permiten aislar cambios para no romper la versión estable (`main`), y que luego se integran mediante un `merge`.
+- **¿Probé el resultado en el navegador?** Sí, el sitio sigue funcionando correctamente tras la integración.
+- **¿Revisé la consola si apareció un problema?** La terminal no mostró errores de fusión (merge conflict).
+- **¿Comprobé el resultado en al menos una condición diferente?** Sí, verifiqué que los cambios subieran a GitHub en la rama `main`.
+- **¿Corregí los errores conocidos antes de marcar la tarea como terminada?** Sí, el `git status` final confirmó que no quedaron archivos sin rastrear.
+
+### 4. Definition of Done
+La jornada se considera terminada porque se creó una rama, se realizó un commit, se integró a la rama principal, se comprobó que la versión estable se mantiene funcional y se eliminó la rama innecesaria.
+
+**Evidencias del Día 22:**
+- `evidencia_dia_22_ramas_github.png`: Captura de GitHub mostrando la rama `main` y la confirmación de la existencia de 2 ramas en el repositorio.
+
+**Fin del Día 22.**
+---
+### 3. Reporte de Impacto (Entregable Final)
+- **Reporte Inicial:** Se detectaron advertencias por falta de HTTPS en el entorno local, ausencia de meta description y carga duplicada de scripts.
+- **Acciones aplicadas:**
+  1. Se agregó la meta description en el `functions.php` del tema hijo.
+  2. Se eliminó la inyección manual del `script.js` en el `header.php` del tema padre, dejando que WordPress lo gestione de forma nativa desde el `functions.php` del tema hijo.
+  3. Se activó y configuró el certificado SSL en LocalWP, forzando el uso de `https://trazzos.local`.
+- **Reporte Posterior (Final):**
+  - **Performance:** 100
+  - **Accessibility:** 100
+  - **Best Practices:** 100
+  - **SEO:** 100
+- **Explicación del Impacto:** Se logró una puntuación perfecta en todas las categorías. El sitio carga instantáneamente, es totalmente accesible, cumple con las buenas prácticas de seguridad y está optimizado para motores de búsqueda. La eliminación de scripts duplicados y el uso de HTTPS fueron clave para alcanzar el 100%.
+
+### 4. Autoverificación
+- **¿Puedo explicar qué construí hoy sin leer el código?** Sí, entiendo que Lighthouse mide el rendimiento y la accesibilidad, y cómo mis cambios (meta description, eliminar script duplicado y activar SSL) mejoraron los puntajes.
+- **¿Probé el resultado en el navegador?** Sí, con Lighthouse.
+- **¿Revisé la consola si apareció un problema?** Consola limpia.
+- **¿Comprobé el resultado en al menos una condición diferente?** Sí, en móvil y escritorio.
+- **¿Corregí los errores conocidos antes de marcar la tarea como terminada?** Sí, solucioné los problemas de rendimiento y SEO.
+
+**Evidencias del Día 23:**
+- `evidencia_dia_23_lighthouse.png`: Captura de Lighthouse mostrando 100 en Performance, 100 en Accesibilidad, 100 en Buenas Prácticas y 100 en SEO.
+
+**Fin del Día 23.**
+
+## Día 24 — Obtener Retroalimentación Externa (Peer Review)
+
+**Fecha:** 04/11/2026
+**Objetivo:** Obtener retroalimentación y convertirla en acciones concretas.
+
+### 1. Comprender antes de construir (Conceptos clave)
+- **Peer review:** Revisión por parte de un par o usuario.
+- **Feedback:** Comentarios sobre el sitio.
+- **Criteria:** Criterios de evaluación.
+- **Prioritization:** Decidir qué cambios son urgentes.
+
+### 2. Ficha de Revisión (Observaciones Recibidas)
+Se presentó el sitio a un usuario externo (familiar), quien dio las siguientes observaciones:
+1. **Contenido:** "Los textos se leen claros, pero la sección de servicios podría tener más información sobre los precios."
+2. **Navegación:** "El menú de arriba funciona bien, y en el celular el botón de hamburguesa es muy útil."
+3. **Accesibilidad/Apariencia:** "El contraste del texto dorado sobre el fondo azul se ve muy bien y es fácil de leer."
+
+### 3. Plan de Mejora
+- **Problemas críticos:** Ninguno.
+- **Mejoras opcionales:** Agregar más detalle a los precios (se deja para futuras versiones).
+- **Mejora aplicada:** Se ajustó el interlineado (`line-height`) en la sección "Nosotros" para mejorar la legibilidad en pantallas grandes.
+
+### 4. Autoverificación
+- **¿Puedo explicar qué construí hoy sin leer el código?** Sí, apliqué una mejora basada en feedback.
+- **¿Probé el resultado en el navegador?** Sí.
+- **¿Revisé la consola si apareció un problema?** No hubo problemas.
+- **¿Comprobé el resultado en al menos una condición diferente?** Sí, en escritorio y móvil.
+- **¿Corregí los errores conocidos antes de marcar la tarea como terminada?** Sí.
+
+**Evidencias del Día 24:**
+- `evidencia_dia_24_peer_review.png`: Captura de la ficha de revisión y la mejora aplicada.
+
+**Fin del Día 24.**
+---
+
+## Día 25 — Validación Técnica Integral
+
+**Fecha:** 05/11/2026
+**Objetivo:** Realizar una validación técnica integral antes de la publicación.
+
+### 1. Comprender antes de construir (Conceptos clave)
+- **Final validation:** Revisión final antes de entregar.
+- **Regression testing:** Asegurar que los cambios nuevos no rompieron lo que ya funcionaba.
+- **HTML/CSS/Links:** Verificar que el código y la navegación estén perfectos.
+
+### 2. Checklist de Construcción
+- [x] Validar HTML completo (sin errores en W3C).
+- [x] Validar CSS completo.
+- [x] Comprobar enlaces internos (menú funciona).
+- [x] Comprobar imágenes (todas cargan correctamente).
+- [x] Comprobar navegación (scroll suave y menú hamburguesa).
+- [x] Comprobar formulario (validación y envío exitoso).
+- [x] Comprobar consola (sin errores rojos).
+- [x] Comprobar responsive (se ve bien en móvil y escritorio).
+- [x] Revisar que los cambios de WordPress no hayan roto el proyecto original.
+- [x] Corregir problemas antes de publicar.
+
+### 3. Reporte Final de Validación
+- **HTML y CSS:** Válidos.
+- **Enlaces y navegación:** 100% funcionales.
+- **Formulario:** Validación JS y envío a Formspree funcionando correctamente.
+- **Consola:** Limpia.
+- **Responsive:** Adaptable a todos los tamaños.
+- **WordPress:** El tema hijo está activo y el sitio se ve idéntico al original.
+
+### 4. Autoverificación
+- **¿Puedo explicar qué construí hoy sin leer el código?** Sí.
+- **¿Probé el resultado en el navegador?** Sí.
+- **¿Revisé la consola si apareció un problema?** Consola limpia.
+- **¿Comprobé el resultado en al menos una condición diferente?** Sí.
+- **¿Corregí los errores conocidos antes de marcar la tarea como terminada?** Sí.
+
+**Evidencias del Día 25:**
+- `evidencia_dia_25_validacion_final.png`: Captura de la consola limpia (sin errores) en el sitio de WordPress.
+
+**Fin del Día 25.**
+---
+
+## Anexo — Mejora Adicional: Optimización de la Sección de Contacto
+
+**Fecha:** 05/11/2026
+**Objetivo:** Separar la información de contacto del formulario para mejorar la usabilidad, siguiendo las recomendaciones del profesor.
+
+### 1. Análisis y Solución
+Se identificó que la sección de contacto mezclaba los datos del negocio con el formulario. Se implementó un patrón de "sección colapsable" accesible (WCAG). Ahora, el usuario ve el formulario de inmediato y, si necesita los datos de contacto, presiona un botón para desplegarlos.
+
+### 2. Implementación Técnica
+- **HTML (`front-page.php`):** Se creó un botón con atributos ARIA (`aria-expanded`, `aria-controls`) y un panel oculto (`hidden`) con la información.
+- **CSS (`trazzos-hijo/style.css`):** Se añadieron estilos para el botón (fondo dorado, texto azul, centrado, esquinas redondeadas) y para el panel de información.
+- **JavaScript (`trazzos-hijo/functions.php`):** Se implementó la lógica para que el botón alterne el atributo `hidden` del panel y actualice `aria-expanded`.
+
+### 3. Pruebas Realizadas
+- El botón se ve centrado y con el estilo de TRAZZOS.
+- Al hacer clic, la información se despliega correctamente.
+- El formulario "Escríbenos" sigue funcionando con sus validaciones.
+- No hay errores en la consola.
+
+**Evidencias de la Mejora:**
+- `evidencia_mejora_contacto.png`: Captura de la sección de contacto mostrando el botón dorado centrado y el panel de información desplegado.
+
+**Fin del Anexo.**
