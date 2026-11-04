@@ -1126,3 +1126,22 @@ Se identificó que la sección de contacto mezclaba los datos del negocio con el
 - `evidencia_mejora_contacto.png`: Captura de la sección de contacto mostrando el botón dorado centrado y el panel de información desplegado.
 
 **Fin del Anexo.**
+---
+
+s Verificación Final del Sitio en la Copia
+
+**Fecha:** 06/11/2026
+**Objetivo:** Verificar que el sitio en `trazzoscopia.local` funciona correctamente con las anclas y el botón de contacto, y obtener la puntuación perfecta en Lighthouse.
+
+### Pruebas Realizadas
+- Se verificó que las anclas del menú cambian la URL (ej. `/#nosotros`, `/#servicios`).
+- Se verificó que el botón "Ver información" en Contacto despliega y oculta la información del negocio.
+- Se verificó que el formulario "Escríbenos" sigue funcionando.
+- Se ejecutó Lighthouse con HTTPS activo y se obtuvieron los siguientes puntajes:
+  - **Performance:** 100
+  - **Accessibility:** 100
+  - **Best Practices:** 100
+  - **SEO:** 100
+
+**Evidencias:**
+- `evidencia_dia_26_lighthouse.png`: Captura de Lighthouse con puntuación perfecta en las 4 categorías.
