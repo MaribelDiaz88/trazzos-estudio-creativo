@@ -1145,3 +1145,53 @@ s Verificación Final del Sitio en la Copia
 
 **Evidencias:**
 - `evidencia_dia_26_lighthouse.png`: Captura de Lighthouse con puntuación perfecta en las 4 categorías.
+---
+
+##  — Bitácora de Cambios de Código (Refactorización y Estilos)
+
+**Fecha:** 06/11/2026
+
+### Objetivo de la jornada
+Solucionar errores fatales de PHP, aplicar nuevas reglas de CSS Grid para la sección de servicios, corregir problemas de contraste en el DOM y establecer un sistema de respaldo.
+
+### ¿Qué hice hoy? (Archivos Modificados)
+
+**1. `front-page.php` (Tema Padre)**
+- **Motivo:** Añadir texto superpuesto (banner) a la imagen de la sección de servicios sin romper la estructura.
+- **Código agregado:** Se añadió el contenedor `.texto-banner` con el título (h3) y el párrafo (p) dentro del div `.imagen-enfoque`.
+
+**2. `style.css` (Tema Hijo)**
+- **Motivo:** Rediseñar la cuadrícula de servicios, aplicar el efecto de degradado al banner y corregir el contraste de textos invisibles.
+- **Cambios realizados:**
+  - Se forzó una cuadrícula de 2 columnas (`grid-template-columns: repeat(2, 1fr)`) para las tarjetas de servicio.
+  - Se expandió la imagen a todo el ancho (`grid-column: 1 / -1`) con un formato panorámico (`aspect-ratio: 21/9`).
+  - Se agregó un degradado oscuro (`linear-gradient`) mediante un pseudoelemento `::after` para que el texto del banner resalte.
+  - Se corrigió el color del texto del panel de contacto (`#info-contacto`) usando `!important` para forzar letras oscuras sobre el fondo claro.
+
+**3. `functions.php` (Tema Hijo)**
+- **Motivo:** Eliminar el error fatal de PHP y centralizar los scripts de interactividad (JavaScript) en el tema hijo.
+- **Cambios realizados:**
+  - Se eliminó la función duplicada `trazzos_optimizar_wordpress()` que chocaba con el tema padre (solucionando el error *Fatal Error*).
+  - Se inyectó el JavaScript para el botón "Volver arriba" (con lógica de scroll).
+  - Se inyectó el JavaScript para el botón "Ver información" en la sección de contacto.
+
+### Problemas Solucionados
+| Problema Técnico | Causa | Solución Aplicada |
+| :--- | :--- | :--- |
+| **Fatal error PHP** | Función `trazzos_optimizar_wordpress()` declarada en ambos temas. | Se eliminó del hijo para que herede la del padre. |
+| **Textos invisibles en Contacto** | `.seccion-azul` forzaba color blanco, pero el panel interno tenía fondo blanco. | Selectores CSS de alta especificidad (`#contacto #info-contacto`) con `!important`. |
+| **Sección de servicios desalineada** | `auto-fit` generaba un hueco al haber 4 tarjetas y 1 imagen. | `grid-template-columns: repeat(2, 1fr)` y expansión de la imagen con `grid-column: 1 / -1`. |
+
+### Gestión de Respaldo
+- **Plugin instalado:** UpdraftPlus.
+- **Acción:** Se generó un respaldo manual completo (Base de datos + Archivos).
+- **Resultado:** Se descargaron exitosamente los archivos `.zip` y `.gz` al almacenamiento local.
+
+### ¿Qué aprendí?
+- A interpretar y solucionar errores de colisión de funciones en PHP.
+- A usar CSS Grid para crear diseños asimétricos (tarjetas + banner panorámico).
+- A aplicar degradados CSS para garantizar el contraste y la legibilidad del texto sobre imágenes.
+- La importancia de mantener respaldos manuales del código y la base de datos.
+
+### Estado
+Completado — Código limpio, diseño profesional y proyecto respaldado.
